@@ -105,6 +105,8 @@ public class MyAdapter extends BaseAdapter {
         });
 
 
+
+
         btnCbRemove.setOnClickListener(new View.OnClickListener() {
 
 
