@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.anastasia.myfirstactivityproject.MainActivity"
+    android:background="@drawable/giraffbackground">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello Anastasia!"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:id="@+id/lblTitleBaby" />
+        />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="Children Profile"
+        android:id="@+id/btnProfile"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/lblTitleBaby"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="italic"
+        android:textColor="#781703"
+        android:background="#e966ff87"
+       />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="Baby Giraffes"
+        android:id="@+id/btnBabyList"
+        android:textStyle="italic"
+        android:textColor="#781703"
+        android:background="#e966ff87"
+        android:layout_alignTop="@+id/btnProfile"
+        android:layout_toRightOf="@+id/btnProfile"
+        android:layout_toEndOf="@+id/btnProfile"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp" />
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:textStyle="italic"
+        android:textColor="#781703"
+        android:background="#e966ff87"
+        android:id="@+id/btnToddlerList"
+        android:text="Toddler Gerafes"
+        android:layout_alignTop="@+id/btnBabyList"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="31dp"
+        android:layout_marginEnd="31dp" />
+
+
+</RelativeLayout>

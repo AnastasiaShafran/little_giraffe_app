@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.anastasia.myfirstactivityproject.MoreInfoActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblMomFirstNameMoreInfo"
+        android:text="Mom First Name"
+        android:layout_marginTop="8dp"
+        android:textColor="#0a0909"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblDadFirstNameMoreInfo"
+        android:text="Dad First Name"
+        android:layout_marginTop="8dp"
+        android:textColor="#0a0909"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblMomEmailMoreInfo"
+        android:text="Mom Email"
+        android:layout_marginTop="8dp"
+        android:textColor="#0a0909"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblDadEmailMoreInfo"
+        android:text="Dad Email"
+        android:layout_marginTop="8dp"
+        android:textColor="#0a0909"
+        android:layout_marginLeft="10dp"/>
+
+
+</LinearLayout>
