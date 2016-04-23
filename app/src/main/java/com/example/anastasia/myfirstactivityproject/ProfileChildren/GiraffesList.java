@@ -1,9 +1,11 @@
-package com.example.anastasia.myfirstactivityproject;
+package com.example.anastasia.myfirstactivityproject.ProfileChildren;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.example.anastasia.myfirstactivityproject.R;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -17,7 +19,7 @@ public class GiraffesList extends AppCompatActivity {
     private HashMap<String,Children> childrenMap;
     private Children myChildren;
     private Firebase myFirebase;
-
+    private TextView lblCbGroupTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,15 @@ public class GiraffesList extends AppCompatActivity {
         myFirebase = refUrl.child("Children");
         lstGiraffesKids = (ListView)findViewById(R.id.lstGiraffes);
         final String type = getIntent().getStringExtra("type");
+        if(type.equals("baby")){
+            lblCbGroupTitle = (TextView)findViewById(R.id.lblTitleGroup);
+            lblCbGroupTitle.setText("Baby Giraffes");
+        }
+        if(type.equals("toddler")){
+            lblCbGroupTitle = (TextView)findViewById(R.id.lblTitleGroup);
+            lblCbGroupTitle.setText("Toddler Giraffes");
+
+        }
         childrenMap = new HashMap<>();
         myAdapter = new MyAdapter(this,childrenMap);
         lstGiraffesKids.setAdapter(myAdapter);
@@ -47,6 +58,18 @@ public class GiraffesList extends AppCompatActivity {
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                myChildren = dataSnapshot.getValue(Children.class);
+                String key = dataSnapshot.getKey();
+                if (myChildren.getGroup().compareTo(type) == 0) {
+                    childrenMap.put(key, myChildren);
+                    myAdapter.notifyDataSetChanged();
+                    lstGiraffesKids.invalidate();
+
+
+                }
+
+
 
             }
 

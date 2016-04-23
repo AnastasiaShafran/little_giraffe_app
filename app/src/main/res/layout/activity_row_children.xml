@@ -1,71 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblFirstName"
-        android:text="First Name"
-        android:textColor="#0a0909"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="8dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblLastName"
-        android:text="Last Name"
-        android:layout_marginTop="8dp"
-        android:textColor="#0a0909"
-        android:layout_marginLeft="10dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblDateOfBirth"
-        android:text=" Date of Birth "
-        android:layout_marginTop="8dp"
-        android:textColor="#0a0909"
-        android:layout_marginLeft="10dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblPhone"
-        android:text=" Phone "
-        android:layout_marginTop="8dp"
-        android:textColor="#0a0909"
-        android:layout_marginLeft="10dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblGroup"
-        android:text="Group"
-        android:layout_marginTop="8dp"
-        android:textColor="#0a0909"
-        android:layout_marginLeft="10dp"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:id="@+id/btnMoreInfo"
-        android:text="See More"
-        android:layout_marginTop="7dp"
-        style="?android:attr/borderlessButtonStyle"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:id="@+id/btnUpdate"
-        android:text="Update"
-        android:layout_marginTop="7dp"
-        style="?android:attr/borderlessButtonStyle"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:id="@+id/btnRemove"
-        android:text="Remove"
-        android:layout_marginTop="7dp"
-        style="?android:attr/borderlessButtonStyle"/>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="1">
 
 
 
-</LinearLayout>
+    <TableRow>
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblFirstName"
+            android:text="First Name"
+            android:textColor="#0a0909"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_column="1"/>
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblLastName"
+            android:text="Last Name"
+            android:layout_marginTop="8dp"
+            android:textColor="#0a0909"
+            android:layout_marginLeft="10dp"
+            android:layout_column="2"/>
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblDateOfBirth"
+            android:text=" Date of Birth "
+            android:layout_marginTop="8dp"
+            android:textColor="#0a0909"
+            android:layout_marginLeft="10dp"
+            android:layout_column="3" />
+
+        <TextView
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblPhone"
+                android:text=" Phone "
+                android:layout_marginTop="8dp"
+                android:textColor="#0a0909"
+                android:layout_marginLeft="10dp"
+            android:layout_column="4" />
+
+
+        <Button
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:id="@+id/btnMoreInfo"
+                android:text="See More"
+            android:textSize="10dp"
+                android:layout_marginTop="7dp"
+                style="?android:attr/borderlessButtonStyle"
+            android:layout_column="6" />
+
+        <Button
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:id="@+id/btnUpdate"
+                android:text="Update"
+            android:textSize="10dp"
+                android:layout_marginTop="7dp"
+                style="?android:attr/borderlessButtonStyle"
+            android:layout_column="7" />
+
+        <Button
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:id="@+id/btnRemove"
+                android:text="Remove"
+            android:textSize="10dp"
+                android:layout_marginTop="7dp"
+                style="?android:attr/borderlessButtonStyle"
+            android:layout_column="8" />
+    </TableRow>
+
+
+
+
+</TableLayout>

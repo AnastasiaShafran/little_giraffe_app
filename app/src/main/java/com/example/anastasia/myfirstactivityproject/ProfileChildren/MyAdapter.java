@@ -1,6 +1,5 @@
-package com.example.anastasia.myfirstactivityproject;
+package com.example.anastasia.myfirstactivityproject.ProfileChildren;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,17 +13,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.client.ChildEventListener;
-import com.firebase.client.DataSnapshot;
+import com.example.anastasia.myfirstactivityproject.R;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-
-import static android.support.v4.app.ActivityCompat.startActivity;
-import static android.support.v4.app.ActivityCompat.startActivityForResult;
 
 /**
  * Created by Anastasia on 4/17/2016.
@@ -78,7 +70,7 @@ public class MyAdapter extends BaseAdapter {
         TextView lblChildLastName = (TextView)myView.findViewById(R.id.lblLastName);
         TextView lblBirthDay = (TextView)myView.findViewById(R.id.lblDateOfBirth);
         TextView lblPhoneNum = (TextView)myView.findViewById(R.id.lblPhone);
-        TextView lblType = (TextView)myView.findViewById(R.id.lblGroup);
+       // TextView lblType = (TextView)myView.findViewById(R.id.lblGroup);
         Button btnCbInfo = (Button)myView.findViewById(R.id.btnMoreInfo);
         Button btnCbUpdate = (Button)myView.findViewById(R.id.btnUpdate);
         Button btnCbRemove = (Button)myView.findViewById(R.id.btnRemove);
@@ -86,7 +78,7 @@ public class MyAdapter extends BaseAdapter {
         lblChildLastName.setText(c.getLastName().toString()+ ", ");
         lblBirthDay.setText(c.getDateOfBirth().toString()+ ", ");
         lblPhoneNum.setText(c.getPhone().toString()+ ", ");
-        lblType.setText(c.getGroup().toString() + ".");
+
 
         btnCbInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +135,17 @@ public class MyAdapter extends BaseAdapter {
         btnCbUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                String key = (String) childrenMap.keySet().toArray()[position];
+                Children ch = (Children) getItem(position);
+                Intent myIntent = new Intent(context,ChildrenProfileActivity.class);
+                Bundle b = new Bundle();
+                b.putSerializable("Child", key);
+                b.putSerializable("Val", ch);
+                myIntent.putExtras(b);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(myIntent);
 
             }
         });

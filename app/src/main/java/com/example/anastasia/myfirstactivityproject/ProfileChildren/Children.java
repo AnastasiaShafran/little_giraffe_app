@@ -1,4 +1,4 @@
-package com.example.anastasia.myfirstactivityproject;
+package com.example.anastasia.myfirstactivityproject.ProfileChildren;
 
 import java.io.Serializable;
 

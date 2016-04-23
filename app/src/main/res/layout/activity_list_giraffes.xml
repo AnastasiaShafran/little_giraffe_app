@@ -7,27 +7,43 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".GiraffesList"
+    tools:context=".ProfileChildren.GiraffesList"
 
     android:background="@drawable/giraffelist">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Baby Giraffes"
-        android:layout_marginTop="6dp"
+        android:text="Group"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="80dp"
         android:textColor="#781703"
         android:textStyle="bold"
-        android:id="@+id/txtTitleBaby"/>
+        android:id="@+id/lblTitleGroup"
+        />
 
-    <ListView
+    <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lstGiraffes"
-        android:layout_below="@+id/txtTitleBaby"
-        android:layout_marginTop="10dp"
-        android:textAlignment="center"></ListView>
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp">
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lstGiraffes"
+            android:layout_below="@+id/txtTitleBaby"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center">
+
+        </ListView>
+
+
+    </TableLayout>
+
+
+
 
 
 </RelativeLayout>

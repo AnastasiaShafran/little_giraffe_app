@@ -1,4 +1,4 @@
-package com.example.anastasia.myfirstactivityproject;
+package com.example.anastasia.myfirstactivityproject.ProfileChildren;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.firebase.client.Firebase;
+import com.example.anastasia.myfirstactivityproject.ProfileTeacher.AddTeacherActivity;
+import com.example.anastasia.myfirstactivityproject.R;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener{
    // private  Firebase myFirebase;
-    private Button btnCbProfile,btnCbBabyList,btnCbToddlerList;
+    private Button btnCbProfile,btnCbBabyList,btnCbToddlerList,btnCbTeacherProf;
+    private TextView lblCbGroupTitle;
 
 
     @Override
@@ -24,6 +27,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         btnCbProfile.setOnClickListener(this);
         btnCbToddlerList = (Button) findViewById(R.id.btnToddlerList);
         btnCbToddlerList.setOnClickListener(this);
+        btnCbTeacherProf = (Button)findViewById(R.id.btnTeacherProfile);
+        btnCbTeacherProf.setOnClickListener(this);
+        lblCbGroupTitle = (TextView)findViewById(R.id.lblTitleGroup);
     }
 
 
@@ -38,15 +44,21 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
                 startActivity(intent);
                 break;
             case R.id.btnBabyList:
+
                 Intent i = new Intent(MainActivity.this,GiraffesList.class);
                 i.putExtra("type","baby");
                 startActivity(i);
+
                 break;
             case R.id.btnToddlerList:
                 Intent myIntent = new Intent(MainActivity.this,GiraffesList.class);
-                myIntent.putExtra("type","toddler");
+                myIntent.putExtra("type", "toddler");
                 startActivity(myIntent);
                 break;
+            case R.id.btnTeacherProfile:
+                Intent thIntent = new Intent(MainActivity.this, AddTeacherActivity.class);
+                startActivity(thIntent);
+
             default: break;
 
         }

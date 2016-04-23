@@ -10,16 +10,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ProfileChildren.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GiraffesList" />
-        <activity android:name=".ChildrenProfileActivity" />
-        <activity android:name=".MoreInfoActivity"></activity>
+        <activity android:name=".ProfileChildren.GiraffesList" />
+        <activity android:name=".ProfileChildren.ChildrenProfileActivity" />
+        <activity android:name=".ProfileChildren.MoreInfoActivity" />
+        <activity android:name=".ProfileChildren.FragmentUpdate" />
+        <activity android:name=".ProfileTeacher.AddTeacherActivity"></activity>
     </application>
 
 </manifest>

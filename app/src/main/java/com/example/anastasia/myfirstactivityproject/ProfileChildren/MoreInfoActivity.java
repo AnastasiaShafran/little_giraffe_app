@@ -1,9 +1,11 @@
-package com.example.anastasia.myfirstactivityproject;
+package com.example.anastasia.myfirstactivityproject.ProfileChildren;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.anastasia.myfirstactivityproject.R;
 
 import java.io.Serializable;
 
