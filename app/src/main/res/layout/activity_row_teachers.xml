@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:shrinkColumns="1">
+
+
+        <TableRow>
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblFirstName"
+                android:text="First Name"
+                android:textColor="#0a0909"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_column="1"/>
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblLastName"
+                android:text="Last Name"
+                android:layout_marginTop="8dp"
+                android:textColor="#0a0909"
+                android:layout_marginLeft="10dp"
+                android:layout_column="2"/>
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblAge"
+                android:text="Age"
+                android:layout_marginTop="8dp"
+                android:textColor="#0a0909"
+                android:layout_marginLeft="10dp"
+                android:layout_column="4" />
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/lblPhone"
+                android:text=" Phone "
+                android:layout_marginTop="8dp"
+                android:textColor="#0a0909"
+                android:layout_marginLeft="10dp"
+                android:layout_column="4" />
+
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:id="@+id/btnMoreInfo"
+                android:text="More Info"
+                android:textSize="10dp"
+                android:layout_marginTop="7dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_column="6" />
+
+
+        </TableRow>
+
+
+
+
+    </TableLayout>
+
+</LinearLayout>

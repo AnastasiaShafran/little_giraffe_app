@@ -4,7 +4,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:shrinkColumns="1"
-        tools:context=".ProfileChildren.MainActivity"
+        tools:context=".child.MainActivity"
         android:background="@drawable/giraffbackground">
     <TextView
         android:layout_width="wrap_content"
@@ -122,6 +122,47 @@
             android:text="Teacher Profile"
             android:layout_row="0"
             android:layout_column="4"
+            android:textAllCaps="false" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:textStyle="italic"
+            android:textColor="#fffdfd"
+            android:background="#e980470a"
+            android:id="@+id/btnSchedule"
+            android:text="Schedule"
+            android:layout_row="0"
+            android:layout_column="0"
             android:textAllCaps="false" />
     </TableRow>
 

@@ -10,18 +10,19 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileChildren.MainActivity">
+        <activity android:name=".child.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileChildren.GiraffesList" />
-        <activity android:name=".ProfileChildren.ChildrenProfileActivity" />
-        <activity android:name=".ProfileChildren.MoreInfoActivity" />
-        <activity android:name=".ProfileChildren.FragmentUpdate" />
-        <activity android:name=".ProfileTeacher.AddTeacherActivity"></activity>
+        <activity android:name=".child.GiraffesList" />
+        <activity android:name=".child.ChildrenProfileActivity" />
+        <activity android:name=".child.MoreInfoActivity" />
+        <activity android:name=".teacher.AddTeacherActivity" />
+        <activity android:name=".teacher.WeeklySchedule" />
+        <activity android:name=".teacher.TeacherListActivity"></activity>
     </application>
 
 </manifest>

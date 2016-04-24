@@ -1,4 +1,4 @@
-package com.example.anastasia.myfirstactivityproject.ProfileChildren;
+package com.example.anastasia.myfirstactivityproject.child;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.anastasia.myfirstactivityproject.R;
+import com.example.anastasia.myfirstactivityproject.pojo.Children;
 
 import java.io.Serializable;
 

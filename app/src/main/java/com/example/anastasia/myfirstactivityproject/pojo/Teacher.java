@@ -1,4 +1,4 @@
-package com.example.anastasia.myfirstactivityproject.ProfileTeacher;
+package com.example.anastasia.myfirstactivityproject.pojo;
 
 /**
  * Created by Anastasia on 4/20/2016.

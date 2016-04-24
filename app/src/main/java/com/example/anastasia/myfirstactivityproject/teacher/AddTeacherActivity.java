@@ -1,4 +1,4 @@
-package com.example.anastasia.myfirstactivityproject.ProfileTeacher;
+package com.example.anastasia.myfirstactivityproject.teacher;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.anastasia.myfirstactivityproject.R;
+import com.example.anastasia.myfirstactivityproject.pojo.Teacher;
 import com.firebase.client.Firebase;
 
 import java.util.HashMap;

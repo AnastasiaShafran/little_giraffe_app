@@ -1,4 +1,4 @@
-package com.example.anastasia.myfirstactivityproject.ProfileChildren;
+package com.example.anastasia.myfirstactivityproject.child;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anastasia.myfirstactivityproject.R;
+import com.example.anastasia.myfirstactivityproject.pojo.Children;
 import com.firebase.client.Firebase;
 
 import java.util.HashMap;
@@ -141,8 +142,8 @@ public class MyAdapter extends BaseAdapter {
                 Children ch = (Children) getItem(position);
                 Intent myIntent = new Intent(context,ChildrenProfileActivity.class);
                 Bundle b = new Bundle();
-                b.putSerializable("Child", key);
-                b.putSerializable("Val", ch);
+                b.putSerializable("childKey", key);
+                b.putSerializable("childValue", ch);
                 myIntent.putExtras(b);
                 myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(myIntent);

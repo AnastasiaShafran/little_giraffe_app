@@ -1,4 +1,4 @@
-package com.example.anastasia.myfirstactivityproject.ProfileChildren;
+package com.example.anastasia.myfirstactivityproject.child;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,12 +8,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.anastasia.myfirstactivityproject.ProfileTeacher.AddTeacherActivity;
+import com.example.anastasia.myfirstactivityproject.teacher.AddTeacherActivity;
 import com.example.anastasia.myfirstactivityproject.R;
+import com.example.anastasia.myfirstactivityproject.teacher.WeeklySchedule;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener{
    // private  Firebase myFirebase;
-    private Button btnCbProfile,btnCbBabyList,btnCbToddlerList,btnCbTeacherProf;
+    private Button btnCbProfile,btnCbBabyList,btnCbToddlerList,btnCbTeacherProf,btnCbSchedule;
     private TextView lblCbGroupTitle;
 
 
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         btnCbTeacherProf = (Button)findViewById(R.id.btnTeacherProfile);
         btnCbTeacherProf.setOnClickListener(this);
         lblCbGroupTitle = (TextView)findViewById(R.id.lblTitleGroup);
+        btnCbSchedule = (Button)findViewById(R.id.btnSchedule);
+        btnCbSchedule.setOnClickListener(this);
     }
 
 
@@ -58,6 +61,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
             case R.id.btnTeacherProfile:
                 Intent thIntent = new Intent(MainActivity.this, AddTeacherActivity.class);
                 startActivity(thIntent);
+                break;
+            case R.id.btnSchedule:
+                Intent schIntent = new Intent(MainActivity.this, WeeklySchedule.class);
+                startActivity(schIntent);
+                break;
+
 
             default: break;
 

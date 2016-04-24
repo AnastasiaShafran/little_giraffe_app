@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ProfileChildren.ChildrenProfileActivity"
+    tools:context=".child.ChildrenProfileActivity"
     android:background="@drawable/giraffbackground">
 
     <TextView

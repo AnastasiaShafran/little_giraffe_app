@@ -1,4 +1,4 @@
-package com.example.anastasia.myfirstactivityproject.ProfileChildren;
+package com.example.anastasia.myfirstactivityproject.pojo;
 
 import java.io.Serializable;
 
