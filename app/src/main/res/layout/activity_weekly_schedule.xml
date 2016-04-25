@@ -6,11 +6,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".teacher.WeeklySchedule">
+    tools:context=".teacher.WeeklySchedule"
+    android:background="@drawable/skin">
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:id="@+id/txtDate"
+        android:background="#f2e9aa"/>
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:id="@+id/tableLayout1">
+        android:layout_height="300dp"
+        android:id="@+id/tableLayout1"
+        android:layout_below="@+id/txtDate"
+        android:layout_marginTop="10dp">
     </TableLayout>
 
 
@@ -20,6 +28,6 @@
         android:layout_below="@+id/tableLayout1"
         android:id="@+id/btnSave"
         android:text="Save"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"/>
 
     </RelativeLayout>

@@ -1,10 +1,12 @@
 package com.example.anastasia.myfirstactivityproject.teacher;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import com.example.anastasia.myfirstactivityproject.R;
 import com.example.anastasia.myfirstactivityproject.pojo.Teacher;
@@ -15,10 +17,11 @@ import java.util.HashMap;
 public class AddTeacherActivity extends AppCompatActivity {
 
     private Firebase thFirebase;
-    private Button btnCbAddTh;
+    private Button btnCbAddTh,btnCbTeacherList;
     private EditText txtCbThName, txtCbThLastName, txtCbThAge, txtCbThPhone;
     private HashMap<String,Teacher> teacherMap = new HashMap<>();
     private Teacher teacher;
+
 
 
     @Override
@@ -29,6 +32,7 @@ public class AddTeacherActivity extends AppCompatActivity {
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
         thFirebase = refUrl.child("Teachers");
         onBtnSaveTeacherClick();
+        onBtnList();
 
     }
 
@@ -61,6 +65,16 @@ public class AddTeacherActivity extends AppCompatActivity {
                 txtCbThLastName.setText("");
                 txtCbThAge.setText("");
                 txtCbThPhone.setText("");
+            }
+        });
+    }
+    public void onBtnList(){
+        btnCbTeacherList = (Button)findViewById(R.id.btnTeacherList);
+        btnCbTeacherList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentTch = new Intent(AddTeacherActivity.this,TeacherListActivity.class);
+                startActivity(intentTch);
             }
         });
     }

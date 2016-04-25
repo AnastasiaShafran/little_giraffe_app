@@ -1,5 +1,7 @@
 package com.example.anastasia.myfirstactivityproject.pojo;
 
+import android.widget.EditText;
+
 import java.util.Date;
 import java.util.HashMap;
 
@@ -15,6 +17,7 @@ public class WorkScedule {
     }
 
     public void setStartDate(String startDate) {
+
         this.startDate = startDate;
     }
 

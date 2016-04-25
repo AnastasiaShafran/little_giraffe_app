@@ -6,9 +6,9 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
@@ -27,7 +27,7 @@ import com.firebase.client.ValueEventListener;
 
 import java.util.HashMap;
 
-public class WeeklySchedule extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class WeeklySchedule extends AppCompatActivity {
     private TableLayout table;
     private Firebase myFirebase;
     private Firebase firebaseSchedule;
@@ -223,24 +223,15 @@ public class WeeklySchedule extends AppCompatActivity implements AdapterView.OnI
             }
 
         }
+        EditText etData = (EditText)findViewById(R.id.txtDate);
+        String dataOfSchedule = etData.getText().toString();
+        scedule.setStartDate(dataOfSchedule);
 
 
         firebaseSchedule.child(scedule.getStartDate()).setValue(scedule);
 
 
-
-
-
-
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 }

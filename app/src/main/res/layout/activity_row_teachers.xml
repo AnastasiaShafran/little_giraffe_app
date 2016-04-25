@@ -13,7 +13,7 @@
             <TextView
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/lblFirstName"
+                android:id="@+id/lblFirstTeacherName"
                 android:text="First Name"
                 android:textColor="#0a0909"
                 android:layout_marginLeft="10dp"
@@ -23,7 +23,7 @@
             <TextView
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/lblLastName"
+                android:id="@+id/lblLastTeacherName"
                 android:text="Last Name"
                 android:layout_marginTop="8dp"
                 android:textColor="#0a0909"
@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/lblAge"
+                android:id="@+id/lblTeacherAge"
                 android:text="Age"
                 android:layout_marginTop="8dp"
                 android:textColor="#0a0909"
@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/lblPhone"
+                android:id="@+id/lblTeacherPhone"
                 android:text=" Phone "
                 android:layout_marginTop="8dp"
                 android:textColor="#0a0909"
@@ -54,7 +54,7 @@
             <Button
                 android:layout_width="80dp"
                 android:layout_height="40dp"
-                android:id="@+id/btnMoreInfo"
+                android:id="@+id/btnMoreTeacherInfo"
                 android:text="More Info"
                 android:textSize="10dp"
                 android:layout_marginTop="7dp"
