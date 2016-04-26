@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.anastasia.myfirstactivityproject.R;
@@ -21,6 +22,7 @@ public class TeacherAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
     private TextView lblCbTchName, lblCbTchLastName, lblCbTchAge, lblCbTchPhone;
+    private Button btnCbMoreInfoTeacher;
     private HashMap<String, Teacher> teacherHashMap;
     private Teacher teacher;
     private Firebase myFirebase;
@@ -31,7 +33,7 @@ public class TeacherAdapter extends BaseAdapter {
         layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         Firebase.setAndroidContext(context);
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
-        myFirebase = refUrl.child("Teacher");
+        myFirebase = refUrl.child("Teachers");
     }
 
     @Override
@@ -64,10 +66,11 @@ public class TeacherAdapter extends BaseAdapter {
         lblCbTchLastName = (TextView)myView.findViewById(R.id.lblLastTeacherName);
         lblCbTchAge = (TextView)myView.findViewById(R.id.lblTeacherAge);
         lblCbTchPhone = (TextView)myView.findViewById(R.id.lblTeacherPhone);
-        lblCbTchName.setText(teacher.getName() + " ");
-        lblCbTchLastName.setText(teacher.getLastName()+", ");
-        lblCbTchAge.setText(teacher.getAge() + ",");
-        lblCbTchPhone.setText(teacher.getPhone() + ".");
+        btnCbMoreInfoTeacher = (Button)myView.findViewById(R.id.btnMoreTeacherInfo);
+        lblCbTchName.setText(teacher.getName().toString() + " ");
+        lblCbTchLastName.setText(teacher.getLastName().toString()+", ");
+        lblCbTchAge.setText(String.valueOf(teacher.getAge()) + ",");
+        lblCbTchPhone.setText(String.valueOf(teacher.getPhone()) + ".");
 
 
         return myView;

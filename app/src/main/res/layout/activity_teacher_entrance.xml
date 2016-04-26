@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.anastasia.myfirstactivityproject.teacherapp.TeacherEntranceActivity"
+    android:background="@drawable/teacher">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello Teacher!"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#f1e9f728"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/lblTitleTeacherApp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please choose you work Group"
+        android:layout_below="@+id/lblTitleTeacherApp"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:textColor="#101010"
+        android:layout_marginTop="15dp"
+        android:id="@+id/lblChooseGroup"
+        />
+    <Spinner
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblChooseGroup"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/spinner"
+        android:background="#f1e9f728"
+        ></Spinner>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner"
+        android:layout_marginTop="10dp"
+        android:text="Entry"
+        style="?android:attr/borderlessButtonStyle"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:layout_marginLeft="50dp"
+        android:id="@+id/btnEntryTeacher"
+        />
+
+</RelativeLayout>

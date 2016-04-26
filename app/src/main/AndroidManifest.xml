@@ -4,8 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,7 +22,8 @@
         <activity android:name=".child.MoreInfoActivity" />
         <activity android:name=".teacher.AddTeacherActivity" />
         <activity android:name=".teacher.WeeklySchedule" />
-        <activity android:name=".teacher.TeacherListActivity"></activity>
+        <activity android:name=".teacher.TeacherListActivity" />
+        <activity android:name=".teacherapp.TeacherEntranceActivity"></activity>
     </application>
 
 </manifest>

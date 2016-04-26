@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,10 +13,11 @@
         android:layout_height="wrap_content"
         android:text="Teachers List"
         android:textStyle="bold"
-        android:textColor="#613d0a"
-        android:textSize="17dp"
+        android:textColor="#f7f714"
+        android:textSize="20dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/lbltchListTitle"/>
+        android:id="@+id/lbltchListTitle"
+        android:layout_marginTop="10dp"/>
 
     <ListView
         android:layout_width="wrap_content"
@@ -27,4 +28,4 @@
 
     </ListView>
 
-</LinearLayout>
+</RelativeLayout>

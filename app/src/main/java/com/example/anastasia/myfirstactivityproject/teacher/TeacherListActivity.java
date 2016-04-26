@@ -17,7 +17,7 @@ public class TeacherListActivity extends AppCompatActivity {
     private TeacherAdapter adapter;
     private ListView lstCbTeacher;
     private HashMap<String,Teacher> hashMapTeach;
-    private Firebase firebaseTeach;
+    private Firebase  thFirebase;
     private Teacher myTeacher;
 
     @Override
@@ -26,13 +26,13 @@ public class TeacherListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_list);
         Firebase.setAndroidContext(this);
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
-        firebaseTeach = refUrl.child("Teacher");
+        thFirebase = refUrl.child("Teachers");
         hashMapTeach = new HashMap<>();
         adapter = new TeacherAdapter(this,hashMapTeach);
         lstCbTeacher = (ListView)findViewById(R.id.lstTeacher);
         lstCbTeacher.setAdapter(adapter);
 
-        firebaseTeach.addChildEventListener(new ChildEventListener() {
+        thFirebase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 myTeacher = dataSnapshot.getValue(Teacher.class);
@@ -49,6 +49,11 @@ public class TeacherListActivity extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
+                String key = dataSnapshot.getKey();
+                hashMapTeach.remove(key);
+                adapter.notifyDataSetChanged();
+                lstCbTeacher.invalidate();
+
 
             }
 
