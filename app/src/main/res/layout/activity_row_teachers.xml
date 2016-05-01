@@ -63,6 +63,26 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_column="6" />
 
+            <Button
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:id="@+id/btnTeacherUpdate"
+                android:text="Update"
+                android:textSize="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_column="7" />
+
+            <Button
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:id="@+id/btnTeacherRemove"
+                android:text="Remove"
+                android:textSize="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_column="8" />
+
 
         </TableRow>
 

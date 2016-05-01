@@ -42,14 +42,52 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner"
-        android:layout_marginTop="10dp"
         android:text="Entry"
         style="?android:attr/borderlessButtonStyle"
         android:textStyle="bold"
         android:textAllCaps="false"
-        android:layout_marginLeft="50dp"
         android:id="@+id/btnEntryTeacher"
+
+        android:layout_below="@+id/lblChooseGroup"
+        android:layout_toRightOf="@+id/lblTitleTeacherApp"
+        android:layout_toEndOf="@+id/lblTitleTeacherApp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnEntryTeacher"
+        android:text="Please choose schedule week"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:textColor="#101010"
+        android:layout_marginTop="50dp"
+        android:id="@+id/lblScheduleWeek"
         />
+    <TextView
+        android:id="@+id/lblDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:background="#f1e9f728"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:textColor="#101010"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/lblScheduleWeek"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Schedule"
+        style="?android:attr/borderlessButtonStyle"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:id="@+id/btnSeeYourSchedule"
+        android:layout_alignBottom="@+id/lblDate"
+        android:layout_toRightOf="@+id/lblTitleTeacherApp"
+        android:layout_toEndOf="@+id/lblTitleTeacherApp" />
+
+
 
 </RelativeLayout>

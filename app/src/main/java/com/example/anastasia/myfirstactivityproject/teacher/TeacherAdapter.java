@@ -1,12 +1,15 @@
 package com.example.anastasia.myfirstactivityproject.teacher;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.anastasia.myfirstactivityproject.R;
 import com.example.anastasia.myfirstactivityproject.pojo.Teacher;
@@ -22,7 +25,7 @@ public class TeacherAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
     private TextView lblCbTchName, lblCbTchLastName, lblCbTchAge, lblCbTchPhone;
-    private Button btnCbMoreInfoTeacher;
+    private Button btnCbMoreInfoTeacher, btnCbTeacherUpdate,btnCbTeacherRemove;
     private HashMap<String, Teacher> teacherHashMap;
     private Teacher teacher;
     private Firebase myFirebase;
@@ -52,7 +55,7 @@ public class TeacherAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         View myView = convertView;
 
@@ -67,12 +70,45 @@ public class TeacherAdapter extends BaseAdapter {
         lblCbTchAge = (TextView)myView.findViewById(R.id.lblTeacherAge);
         lblCbTchPhone = (TextView)myView.findViewById(R.id.lblTeacherPhone);
         btnCbMoreInfoTeacher = (Button)myView.findViewById(R.id.btnMoreTeacherInfo);
+        btnCbTeacherUpdate = (Button)myView.findViewById(R.id.btnTeacherUpdate);
+        btnCbTeacherRemove = (Button)myView.findViewById(R.id.btnTeacherRemove);
         lblCbTchName.setText(teacher.getName().toString() + " ");
         lblCbTchLastName.setText(teacher.getLastName().toString()+", ");
         lblCbTchAge.setText(String.valueOf(teacher.getAge()) + ",");
         lblCbTchPhone.setText(String.valueOf(teacher.getPhone()) + ".");
 
+        btnCbTeacherUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnCbTeacherRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context).setMessage("Are you shore you wont to remove Teacher from the list");
+                alertBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        String key = (String) teacherHashMap.keySet().toArray()[position];
+                        myFirebase.child(key).removeValue();
+                        Toast.makeText(context, "Teacher Removed", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+
+                    }
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alertDialog = alertBuilder.create();
+                alertDialog.show();
+            }
+        });
 
         return myView;
     }
+
 }
