@@ -1,5 +1,7 @@
 package com.example.anastasia.myfirstactivityproject.teacher;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -8,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -25,6 +28,7 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class WeeklySchedule extends AppCompatActivity {
@@ -34,9 +38,11 @@ public class WeeklySchedule extends AppCompatActivity {
     private final HashMap<String,Teacher> teachMap = new HashMap<>();;
     private Teacher teacher = new Teacher();
     private Spinner sunday,monday,tuesday,wednesday,thursday, friday;
-//    int color_blue = -16776961;
-//    int color_gray = -7829368;
-//    int color_black = -16777216;
+    private Calendar calendar;
+    private int day,month,year;
+    private TextView lblCbScheduleWeek;
+    static final int DATE_DIALOG_ID = 999;
+    private Button btnCbPickStartDate;
     int color_white = -1;
 
 
@@ -49,7 +55,11 @@ public class WeeklySchedule extends AppCompatActivity {
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
         myFirebase = refUrl.child("Teachers");
         firebaseSchedule = refUrl.child("Schedule");
+        String str = (String) getIntent().getSerializableExtra("scheduleKey");
+        WorkScedule ws = (WorkScedule) getIntent().getSerializableExtra("scheduleValue");
         setOnBtnClickSave();
+        setCurrentDateOnView();
+        onBtnClickChangeDate();
 
 
 
@@ -194,6 +204,64 @@ public class WeeklySchedule extends AppCompatActivity {
             }
         });
     }
+    public void setCurrentDateOnView() {
+
+        lblCbScheduleWeek = (TextView) findViewById(R.id.lblChooseStartDate);
+
+
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+
+
+        lblCbScheduleWeek.setText(new StringBuilder()
+
+                .append(day).append("-").append(month + 1).append("-")
+                .append(year).append(" "));
+
+
+
+    }
+    public  void onBtnClickChangeDate(){
+        btnCbPickStartDate = (Button)findViewById(R.id.btnPickStartDate);
+        btnCbPickStartDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(DATE_DIALOG_ID);
+            }
+        });
+    }
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case DATE_DIALOG_ID:
+
+                return new DatePickerDialog(this, datePickerListener,
+                        year, month,day);
+        }
+        return null;
+    }
+
+    private DatePickerDialog.OnDateSetListener datePickerListener
+            = new DatePickerDialog.OnDateSetListener() {
+
+        public void onDateSet(DatePicker view, int selectedYear,
+                              int selectedMonth, int selectedDay) {
+            year = selectedYear;
+            month = selectedMonth;
+            day = selectedDay;
+
+
+            lblCbScheduleWeek.setText(new StringBuilder().append(day)
+                    .append("-").append(month + 1).append("-").append(year)
+                    .append(" "));
+
+
+
+        }
+    };
+
 
     public void saveSchedule(){
 
@@ -223,8 +291,8 @@ public class WeeklySchedule extends AppCompatActivity {
             }
 
         }
-        EditText etData = (EditText)findViewById(R.id.txtDate);
-        String dataOfSchedule = etData.getText().toString();
+
+        String dataOfSchedule = lblCbScheduleWeek.getText().toString();
         scedule.setStartDate(dataOfSchedule);
 
 

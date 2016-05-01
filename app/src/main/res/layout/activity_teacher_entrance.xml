@@ -73,9 +73,21 @@
         android:textStyle="bold"
         android:textColor="#101010"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/lblScheduleWeek"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick Date"
+        style="?android:attr/borderlessButtonStyle"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:id="@+id/btnPickDate"
+        android:layout_alignBottom="@+id/lblDate"
+        android:layout_toRightOf="@+id/lblTitleTeacherApp"
+        android:layout_toEndOf="@+id/lblTitleTeacherApp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,11 +95,10 @@
         style="?android:attr/borderlessButtonStyle"
         android:textStyle="bold"
         android:textAllCaps="false"
-        android:id="@+id/btnSeeYourSchedule"
-        android:layout_alignBottom="@+id/lblDate"
-        android:layout_toRightOf="@+id/lblTitleTeacherApp"
-        android:layout_toEndOf="@+id/lblTitleTeacherApp" />
-
+        android:id="@+id/btnShowSchedule"
+        android:layout_alignTop="@+id/btnPickDate"
+        android:layout_toRightOf="@+id/btnPickDate"
+        android:layout_toEndOf="@+id/btnPickDate" />
 
 
 </RelativeLayout>

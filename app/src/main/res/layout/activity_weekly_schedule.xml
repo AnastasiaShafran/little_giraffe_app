@@ -8,18 +8,33 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".teacher.WeeklySchedule"
     android:background="@drawable/skin">
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:id="@+id/txtDate"
-        android:background="#f2e9aa"
-       android:numeric="integer"/>
+    <TextView
+        android:id="@+id/lblChooseStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:textColor="#101010"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/lblScheduleWeek"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick Start Date"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:id="@+id/btnPickStartDate"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        style="?android:attr/borderlessButtonStyle"/>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:id="@+id/tableLayout1"
-        android:layout_below="@+id/txtDate"
-        android:layout_marginTop="10dp">
+        android:layout_below="@+id/lblChooseStartDate"
+        android:layout_marginTop="20dp">
     </TableLayout>
 
 

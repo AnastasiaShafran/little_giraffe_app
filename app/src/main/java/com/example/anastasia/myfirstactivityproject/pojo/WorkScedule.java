@@ -2,13 +2,14 @@ package com.example.anastasia.myfirstactivityproject.pojo;
 
 import android.widget.EditText;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 
 /**
  * Created by Anastasia on 4/24/2016.
  */
-public class WorkScedule {
+public class WorkScedule implements Serializable {
     String startDate;
     HashMap<String,TeacherSchedule>  schedule;
 

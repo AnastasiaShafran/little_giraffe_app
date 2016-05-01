@@ -12,16 +12,26 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.anastasia.myfirstactivityproject.R;
 import com.example.anastasia.myfirstactivityproject.child.GiraffesList;
+import com.example.anastasia.myfirstactivityproject.pojo.WorkScedule;
+import com.example.anastasia.myfirstactivityproject.teacher.WeeklySchedule;
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.Query;
 
 import java.util.Calendar;
 
 public class TeacherEntranceActivity extends AppCompatActivity {
     private Spinner spinner;
     private String[] group = {"baby", "toddler"};
-    private Button btnEntry,btnCbSeeSchedule;
+    private Firebase myFireBase;
+    private  Query queryRef;
+    private Button btnEntry,btnCbPickDate,btnCbShowSchedule;
     private TextView lblCbDisplayDate;
     private Calendar calendar;
     private int day,month,year;
@@ -32,6 +42,11 @@ public class TeacherEntranceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_entrance);
+        Firebase.setAndroidContext(this);
+        Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
+        myFireBase = refUrl.child("Schedule");
+        queryRef = myFireBase.orderByKey();
+        showWeeklySchedule();
         spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, group);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -76,8 +91,8 @@ public class TeacherEntranceActivity extends AppCompatActivity {
 
     }
     public  void onBtnClickChangeDate(){
-        btnCbSeeSchedule = (Button)findViewById(R.id.btnSeeYourSchedule);
-        btnCbSeeSchedule.setOnClickListener(new View.OnClickListener() {
+        btnCbPickDate = (Button)findViewById(R.id.btnPickDate);
+        btnCbPickDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDialog(DATE_DIALOG_ID);
@@ -113,6 +128,57 @@ public class TeacherEntranceActivity extends AppCompatActivity {
 
         }
     };
+
+    public void showWeeklySchedule(){
+        btnCbShowSchedule = (Button)findViewById(R.id.btnShowSchedule);
+        btnCbShowSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                queryRef.addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                        WorkScedule workScedule = dataSnapshot.getValue(WorkScedule.class);
+                        String str = dataSnapshot.getKey().toString();
+                        if(str.compareTo(lblCbDisplayDate.getText().toString()) == 0){
+
+                            Intent intent = new Intent(TeacherEntranceActivity.this, WeeklySchedule.class);
+                            Bundle b = new Bundle();
+                            b.putSerializable("scheduleKey", str);
+                            b.putSerializable("scheduleValue", workScedule);
+                            intent.putExtras(b);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"This Date not Exist",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+
+                    }
+                });
+            }
+        });
+    }
+
+
 
 }
 
