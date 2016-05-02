@@ -3,6 +3,8 @@ package com.example.anastasia.myfirstactivityproject.teacher;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anastasia.myfirstactivityproject.R;
+import com.example.anastasia.myfirstactivityproject.child.ChildrenProfileActivity;
+import com.example.anastasia.myfirstactivityproject.pojo.Children;
 import com.example.anastasia.myfirstactivityproject.pojo.Teacher;
 import com.firebase.client.Firebase;
 
@@ -80,6 +84,16 @@ public class TeacherAdapter extends BaseAdapter {
         btnCbTeacherUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String key = (String) teacherHashMap.keySet().toArray()[position];
+                teacher = (Teacher) getItem(position);
+                Intent myIntent = new Intent(context,AddTeacherActivity.class);
+                Bundle b = new Bundle();
+                b.putSerializable("teacherKey", key);
+                b.putSerializable("teacherValue", teacher);
+                myIntent.putExtras(b);
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(myIntent);
 
             }
         });

@@ -44,6 +44,11 @@ public class TeacherListActivity extends AppCompatActivity {
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                myTeacher = dataSnapshot.getValue(Teacher.class);
+                String key = dataSnapshot.getKey();
+                hashMapTeach.put(key,myTeacher);
+                adapter.notifyDataSetChanged();
+                lstCbTeacher.invalidate();
 
             }
 

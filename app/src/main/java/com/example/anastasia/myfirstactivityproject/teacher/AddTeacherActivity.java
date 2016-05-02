@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.anastasia.myfirstactivityproject.R;
+import com.example.anastasia.myfirstactivityproject.pojo.Children;
 import com.example.anastasia.myfirstactivityproject.pojo.Teacher;
 import com.firebase.client.Firebase;
 
@@ -17,10 +18,11 @@ import java.util.HashMap;
 public class AddTeacherActivity extends AppCompatActivity {
 
     private Firebase thFirebase;
-    private Button btnCbAddTh,btnCbTeacherList;
+    private Button btnCbAddTh,btnCbTeacherList,btnCbUpdateTeacher;
     private EditText txtCbThName, txtCbThLastName, txtCbThAge, txtCbThPhone;
     private HashMap<String,Teacher> teacherMap = new HashMap<>();
     private Teacher teacher;
+    String str;
 
 
 
@@ -31,18 +33,67 @@ public class AddTeacherActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
         thFirebase = refUrl.child("Teachers");
-        onBtnSaveTeacherClick();
+        teacher = new Teacher();
+        str = (String) getIntent().getSerializableExtra("teacherKey");
+        Teacher t = (Teacher)getIntent().getSerializableExtra("teacherValue");
+        if(str == null || t == null){
+            onBtnSaveTeacherClick();
+        }else{
+            update(t);
+            onBtnClickUpdate();
+
+        }
+
+
         onBtnList();
 
     }
-
-    public void addTeacher(){
-        teacher = new Teacher();
+    public void update(Teacher teacherToUpdate){
         txtCbThName = (EditText) findViewById(R.id.txtThName);
         txtCbThName.requestFocus();
         txtCbThLastName = (EditText) findViewById(R.id.txtThLastName);
         txtCbThAge = (EditText)findViewById(R.id.txtThAge);
         txtCbThPhone = (EditText)findViewById(R.id.txtThPhone);
+        txtCbThName.setText(teacherToUpdate.getName().toString());
+        txtCbThLastName.setText(teacherToUpdate.getLastName());
+        txtCbThAge.setText(teacherToUpdate.getAge());
+        txtCbThPhone.setText(teacherToUpdate.getPhone());
+
+    }
+    public void onBtnClickUpdate(){
+        txtCbThName = (EditText) findViewById(R.id.txtThName);
+        txtCbThName.requestFocus();
+        txtCbThLastName = (EditText) findViewById(R.id.txtThLastName);
+        txtCbThAge = (EditText)findViewById(R.id.txtThAge);
+        txtCbThPhone = (EditText)findViewById(R.id.txtThPhone);
+        btnCbUpdateTeacher = (Button)findViewById(R.id.btbAddTeacher);
+        btnCbUpdateTeacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = txtCbThName.getText().toString();
+                String lastName = txtCbThLastName.getText().toString();
+                String age = txtCbThAge.getText().toString();
+                String phone = txtCbThPhone.getText().toString();
+                Teacher newTeacher = new Teacher();
+                newTeacher.setName(name);
+                newTeacher.setLastName(lastName);
+                newTeacher.setAge(Integer.parseInt(age));
+                newTeacher.setPhone(Integer.parseInt(phone));
+                thFirebase.child(str).setValue(newTeacher);
+
+            }
+        });
+
+
+    }
+
+    public void addTeacher(){
+        txtCbThName = (EditText) findViewById(R.id.txtThName);
+        txtCbThName.requestFocus();
+        txtCbThLastName = (EditText) findViewById(R.id.txtThLastName);
+        txtCbThAge = (EditText)findViewById(R.id.txtThAge);
+        txtCbThPhone = (EditText)findViewById(R.id.txtThPhone);
+
         String name = txtCbThName.getText().toString();
         String lastName = txtCbThLastName.getText().toString();
         String age = txtCbThAge.getText().toString();

@@ -1,9 +1,11 @@
 package com.example.anastasia.myfirstactivityproject.pojo;
 
+import java.io.Serializable;
+
 /**
  * Created by Anastasia on 4/20/2016.
  */
-public class Teacher {
+public class Teacher implements Serializable{
     private String name;
     private String lastName;
     private int age;

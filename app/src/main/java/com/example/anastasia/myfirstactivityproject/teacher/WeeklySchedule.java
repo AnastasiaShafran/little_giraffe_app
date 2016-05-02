@@ -56,7 +56,6 @@ public class WeeklySchedule extends AppCompatActivity {
         myFirebase = refUrl.child("Teachers");
         firebaseSchedule = refUrl.child("Schedule");
         String str = (String) getIntent().getSerializableExtra("scheduleKey");
-        WorkScedule ws = (WorkScedule) getIntent().getSerializableExtra("scheduleValue");
         setOnBtnClickSave();
         setCurrentDateOnView();
         onBtnClickChangeDate();

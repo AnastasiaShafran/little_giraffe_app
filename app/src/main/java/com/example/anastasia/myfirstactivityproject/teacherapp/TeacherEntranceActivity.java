@@ -9,13 +9,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anastasia.myfirstactivityproject.R;
 import com.example.anastasia.myfirstactivityproject.child.GiraffesList;
+import com.example.anastasia.myfirstactivityproject.pojo.TeacherSchedule;
 import com.example.anastasia.myfirstactivityproject.pojo.WorkScedule;
 import com.example.anastasia.myfirstactivityproject.teacher.WeeklySchedule;
 import com.firebase.client.ChildEventListener;
@@ -25,6 +25,7 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.Query;
 
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class TeacherEntranceActivity extends AppCompatActivity {
     private Spinner spinner;
@@ -32,6 +33,7 @@ public class TeacherEntranceActivity extends AppCompatActivity {
     private Firebase myFireBase;
     private  Query queryRef;
     private Button btnEntry,btnCbPickDate,btnCbShowSchedule;
+    private HashMap<String, HashMap<String, TeacherSchedule>> hashMap;
     private TextView lblCbDisplayDate;
     private Calendar calendar;
     private int day,month,year;
@@ -45,7 +47,7 @@ public class TeacherEntranceActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
         myFireBase = refUrl.child("Schedule");
-        queryRef = myFireBase.orderByKey();
+        queryRef = myFireBase.orderByChild("startDate");
         showWeeklySchedule();
         spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, group);
@@ -137,17 +139,19 @@ public class TeacherEntranceActivity extends AppCompatActivity {
                 queryRef.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        WorkScedule workScedule = dataSnapshot.getValue(WorkScedule.class);
-                        String str = dataSnapshot.getKey().toString();
+                        WorkScedule w = dataSnapshot.getValue(WorkScedule.class);
+                        String str = dataSnapshot.getKey();
+                        hashMap = new HashMap<>();
+                        hashMap.put(str,w.getSchedule());
                         if(str.compareTo(lblCbDisplayDate.getText().toString()) == 0){
 
+                            Toast.makeText(getApplicationContext(),"This Date is fained",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(TeacherEntranceActivity.this, WeeklySchedule.class);
                             Bundle b = new Bundle();
                             b.putSerializable("scheduleKey", str);
-                            b.putSerializable("scheduleValue", workScedule);
                             intent.putExtras(b);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
+                            TeacherEntranceActivity.this.startActivity(intent);
                         }
                         else {
                             Toast.makeText(getApplicationContext(),"This Date not Exist",Toast.LENGTH_SHORT).show();
