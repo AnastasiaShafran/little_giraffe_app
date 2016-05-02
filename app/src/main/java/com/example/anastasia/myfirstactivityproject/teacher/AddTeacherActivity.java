@@ -33,6 +33,11 @@ public class AddTeacherActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
         thFirebase = refUrl.child("Teachers");
+        txtCbThName = (EditText) findViewById(R.id.txtThName);
+        txtCbThName.requestFocus();
+        txtCbThLastName = (EditText) findViewById(R.id.txtThLastName);
+        txtCbThAge = (EditText)findViewById(R.id.txtThAge);
+        txtCbThPhone = (EditText)findViewById(R.id.txtThPhone);
         teacher = new Teacher();
         str = (String) getIntent().getSerializableExtra("teacherKey");
         Teacher t = (Teacher)getIntent().getSerializableExtra("teacherValue");
@@ -42,6 +47,7 @@ public class AddTeacherActivity extends AppCompatActivity {
             update(t);
             onBtnClickUpdate();
 
+
         }
 
 
@@ -49,15 +55,11 @@ public class AddTeacherActivity extends AppCompatActivity {
 
     }
     public void update(Teacher teacherToUpdate){
-        txtCbThName = (EditText) findViewById(R.id.txtThName);
-        txtCbThName.requestFocus();
-        txtCbThLastName = (EditText) findViewById(R.id.txtThLastName);
-        txtCbThAge = (EditText)findViewById(R.id.txtThAge);
-        txtCbThPhone = (EditText)findViewById(R.id.txtThPhone);
-        txtCbThName.setText(teacherToUpdate.getName().toString());
+
+        txtCbThName.setText(teacherToUpdate.getName());
         txtCbThLastName.setText(teacherToUpdate.getLastName());
-        txtCbThAge.setText(teacherToUpdate.getAge());
-        txtCbThPhone.setText(teacherToUpdate.getPhone());
+        txtCbThAge.setText(String.valueOf(teacherToUpdate.getAge()));
+        txtCbThPhone.setText(String.valueOf(teacherToUpdate.getPhone()));
 
     }
     public void onBtnClickUpdate(){
@@ -81,6 +83,7 @@ public class AddTeacherActivity extends AppCompatActivity {
                 newTeacher.setPhone(Integer.parseInt(phone));
                 thFirebase.child(str).setValue(newTeacher);
 
+                cleanControl();
             }
         });
 
@@ -128,5 +131,12 @@ public class AddTeacherActivity extends AppCompatActivity {
                 startActivity(intentTch);
             }
         });
+    }
+    public void cleanControl(){
+        txtCbThName.setText("");
+        txtCbThLastName.setText("");
+        txtCbThAge.setText("");
+        txtCbThPhone.setText("");
+
     }
 }
