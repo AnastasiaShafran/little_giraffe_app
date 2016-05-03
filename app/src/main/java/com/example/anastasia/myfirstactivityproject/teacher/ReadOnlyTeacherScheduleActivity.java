@@ -19,7 +19,7 @@ import com.firebase.client.Firebase;
 
 import java.util.HashMap;
 
-public class TeacherSchedule extends AppCompatActivity {
+public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
     private TableLayout table;
     private final HashMap<String,Teacher> teachMap = new HashMap<>();;
     private TextView sunday,monday,tuesday,wednesday,thursday, friday;
@@ -115,7 +115,7 @@ public class TeacherSchedule extends AppCompatActivity {
 
 //            ArrayAdapter adapter = new ArrayAdapter(ctx,android.R.layout.simple_spinner_item, group );
 //            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sunday.setText("");
+                sunday.setText(w.getSchedule().toString());
 //            monday.setAdapter(adapter);
 //            tuesday.setAdapter(adapter);
 //            wednesday.setAdapter(adapter);
@@ -126,8 +126,8 @@ public class TeacherSchedule extends AppCompatActivity {
 
             table_row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.FILL_PARENT));
             table_row.setBackgroundColor(color_white);
-            teacher = teachMap.get(teachMap.keySet().toArray()[i]);
-            tv_name.setText(teacher.getName().toString());
+         //   teacher = teachMap.get(teachMap.keySet().toArray()[i]);
+            //tv_name.setText(teacher.getName().toString());
             tv_name.setText(teacher.getName().toString());
             tv_name.setTextSize(16);
             tv_name.setTypeface(Typeface.DEFAULT_BOLD);

@@ -1,9 +1,10 @@
 package com.example.anastasia.myfirstactivityproject.pojo;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 
-public class TeacherSchedule {
+public class TeacherSchedule implements Serializable{
     HashMap<String,String > mapDayToGroup;
 
     public TeacherSchedule() {

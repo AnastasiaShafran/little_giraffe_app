@@ -2,6 +2,7 @@ package com.example.anastasia.myfirstactivityproject.teacherapp;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import com.example.anastasia.myfirstactivityproject.R;
 import com.example.anastasia.myfirstactivityproject.child.GiraffesList;
 import com.example.anastasia.myfirstactivityproject.pojo.TeacherSchedule;
 import com.example.anastasia.myfirstactivityproject.pojo.WorkScedule;
+import com.example.anastasia.myfirstactivityproject.teacher.ReadOnlyTeacherScheduleActivity;
 import com.example.anastasia.myfirstactivityproject.teacher.WeeklySchedule;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -37,6 +39,7 @@ public class TeacherEntranceActivity extends AppCompatActivity {
     private TextView lblCbDisplayDate;
     private Calendar calendar;
     private int day,month,year;
+
     static final int DATE_DIALOG_ID = 999;
 
 
@@ -132,8 +135,9 @@ public class TeacherEntranceActivity extends AppCompatActivity {
     };
 
     public void showWeeklySchedule(){
-        btnCbShowSchedule = (Button)findViewById(R.id.btnShowSchedule);
 
+        btnCbShowSchedule = (Button)findViewById(R.id.btnShowSchedule);
+        final Context ctx = this;
 
         btnCbShowSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,12 +154,12 @@ public class TeacherEntranceActivity extends AppCompatActivity {
                         if(str.compareTo(lblCbDisplayDate.getText().toString()) == 0){
 
                             Toast.makeText(getApplicationContext(),"This Date is fained",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(TeacherEntranceActivity.this, TeacherSchedule.class);
+                            Intent intent = new Intent(TeacherEntranceActivity.this, ReadOnlyTeacherScheduleActivity.class);
                             Bundle b = new Bundle();
                             b.putSerializable("schedule", w);
                             intent.putExtras(b);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            TeacherEntranceActivity.this.startActivity(intent);
+                            ctx.startActivity(intent);
                         }
                         else {
                             Toast.makeText(getApplicationContext(),"This Date not Exist",Toast.LENGTH_SHORT).show();
