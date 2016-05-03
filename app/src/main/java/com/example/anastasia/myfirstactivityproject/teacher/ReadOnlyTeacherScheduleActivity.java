@@ -14,14 +14,16 @@ import android.widget.TextView;
 
 import com.example.anastasia.myfirstactivityproject.R;
 import com.example.anastasia.myfirstactivityproject.pojo.Teacher;
+import com.example.anastasia.myfirstactivityproject.pojo.TeacherSchedule;
 import com.example.anastasia.myfirstactivityproject.pojo.WorkScedule;
 import com.firebase.client.Firebase;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
     private TableLayout table;
-    private final HashMap<String,Teacher> teachMap = new HashMap<>();;
+   // private final HashMap<String,Teacher> teachMap = new HashMap<>();;
     private TextView sunday,monday,tuesday,wednesday,thursday, friday;
     private WorkScedule w;
     int color_white = -1;
@@ -37,6 +39,7 @@ public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
         myFirebase = refUrl.child("Teachers");
         firebaseSchedule = refUrl.child("Schedule");
+        table = (TableLayout)findViewById(R.id.tableLayout2);
 
         w = (WorkScedule) getIntent().getSerializableExtra("schedule");
        createTableRows(this,w);
@@ -102,10 +105,16 @@ public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
         table.addView(header);
 
 
-        for (int i = 0; i < ws.getSchedule().size(); i++)
+        for (Map.Entry<String,TeacherSchedule> entry : ws.getSchedule().entrySet())
         {
+
+            String key = entry.getKey();
+            TeacherSchedule t = entry.getValue();
             TableRow table_row = new TableRow(ctx);
             TextView tv_name = new TextView(ctx);
+            HashMap<String,String>hm = t.getMapDayToGroup();
+            String groop = hm.;
+            tv_name.setText(key);
             sunday = new TextView(ctx);
             monday = new TextView(ctx);
             tuesday = new TextView(ctx);
@@ -113,9 +122,7 @@ public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
             thursday = new TextView(ctx);
             friday = new TextView(ctx);
 
-//            ArrayAdapter adapter = new ArrayAdapter(ctx,android.R.layout.simple_spinner_item, group );
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                sunday.setText(w.getSchedule().toString());
+
 //            monday.setAdapter(adapter);
 //            tuesday.setAdapter(adapter);
 //            wednesday.setAdapter(adapter);
