@@ -26,6 +26,7 @@ public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
    // private final HashMap<String,Teacher> teachMap = new HashMap<>();;
     private TextView sunday,monday,tuesday,wednesday,thursday, friday;
     private WorkScedule w;
+    private String date;
     int color_white = -1;
     private Firebase myFirebase;
     private Firebase firebaseSchedule;
@@ -42,6 +43,7 @@ public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
         table = (TableLayout)findViewById(R.id.tableLayout2);
 
         w = (WorkScedule) getIntent().getSerializableExtra("schedule");
+        date = (String)getIntent().getSerializableExtra("date");
        createTableRows(this,w);
 
 
@@ -53,6 +55,7 @@ public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
         TableRow header = new TableRow(ctx);
         header.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
         header.setBackgroundColor(Color.GRAY);
+        TextView myDate = new TextView(ctx);
         TextView teachName = new TextView(ctx);
         TextView sun = new TextView(ctx);
         TextView mon = new TextView(ctx);
@@ -60,6 +63,11 @@ public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
         TextView wed = new TextView(ctx);
         TextView thurs = new TextView(ctx);
         TextView fri = new TextView(ctx);
+        myDate.setText(date);
+        myDate.setTextSize(16);
+        myDate.setTypeface(Typeface.DEFAULT_BOLD);
+        myDate.setWidth(150);
+        myDate.setTextColor(Color.BLUE);
         teachName.setText("Name");
         teachName.setTextSize(16);
         teachName.setTypeface(Typeface.DEFAULT_BOLD);
@@ -148,7 +156,6 @@ public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
 
             img_line.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, 2));
             img_line.setBackgroundResource(R.drawable.table_row_bg);
-
             table_row.addView(tv_name);
             table_row.addView(sunday);
             table_row.addView(monday);

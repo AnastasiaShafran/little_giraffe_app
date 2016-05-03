@@ -157,6 +157,7 @@ public class TeacherEntranceActivity extends AppCompatActivity {
                             Intent intent = new Intent(TeacherEntranceActivity.this, ReadOnlyTeacherScheduleActivity.class);
                             Bundle b = new Bundle();
                             b.putSerializable("schedule", w);
+                            b.putSerializable("date",str);
                             intent.putExtras(b);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             ctx.startActivity(intent);
