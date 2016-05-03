@@ -112,30 +112,34 @@ public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
             TeacherSchedule t = entry.getValue();
             TableRow table_row = new TableRow(ctx);
             TextView tv_name = new TextView(ctx);
-            HashMap<String,String>hm = t.getMapDayToGroup();
-            String groop = hm.;
             tv_name.setText(key);
+            HashMap<String,String>hm = t.getMapDayToGroup();
+            String groupSun = hm.get(hm.keySet().toArray()[0]);
+            String groupMun = hm.get(hm.keySet().toArray()[1]);
+            String groupTue = hm.get(hm.keySet().toArray()[2]);
+            String groupWed = hm.get(hm.keySet().toArray()[3]);
+            String groupThur = hm.get(hm.keySet().toArray()[4]);
+            String groupFri = hm.get(hm.keySet().toArray()[5]);
+
+
             sunday = new TextView(ctx);
+            sunday.setText(groupSun);
             monday = new TextView(ctx);
+            monday.setText(groupMun);
             tuesday = new TextView(ctx);
+            tuesday.setText(groupTue);
             wednesday = new TextView(ctx);
+            wednesday.setText(groupWed);
             thursday = new TextView(ctx);
+            thursday.setText(groupThur);
             friday = new TextView(ctx);
-
-
-//            monday.setAdapter(adapter);
-//            tuesday.setAdapter(adapter);
-//            wednesday.setAdapter(adapter);
-//            thursday.setAdapter(adapter);
-//            friday.setAdapter(adapter);
+            friday.setText(groupFri);
 
             ImageView img_line = new ImageView(ctx);
 
             table_row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.FILL_PARENT));
             table_row.setBackgroundColor(color_white);
-         //   teacher = teachMap.get(teachMap.keySet().toArray()[i]);
-            //tv_name.setText(teacher.getName().toString());
-            tv_name.setText(teacher.getName().toString());
+
             tv_name.setTextSize(16);
             tv_name.setTypeface(Typeface.DEFAULT_BOLD);
             tv_name.setWidth(150);
