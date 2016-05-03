@@ -23,7 +23,8 @@
         <activity android:name=".teacher.AddTeacherActivity" />
         <activity android:name=".teacher.WeeklySchedule" />
         <activity android:name=".teacher.TeacherListActivity" />
-        <activity android:name=".teacherapp.TeacherEntranceActivity"></activity>
+        <activity android:name=".teacherapp.TeacherEntranceActivity" />
+        <activity android:name=".teacher.TeacherSchedule"></activity>
     </application>
 
 </manifest>

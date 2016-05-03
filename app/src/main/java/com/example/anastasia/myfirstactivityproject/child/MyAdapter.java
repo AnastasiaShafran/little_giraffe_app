@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,9 @@ import com.example.anastasia.myfirstactivityproject.R;
 import com.example.anastasia.myfirstactivityproject.pojo.Children;
 import com.firebase.client.Firebase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Anastasia on 4/17/2016.
@@ -29,6 +32,8 @@ public class MyAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private  Children c;
     private Firebase myFirebase;
+    private List<String> list = new ArrayList<String>();
+
 
 
     public MyAdapter(Context context, HashMap<String, Children> childrenMap) {
@@ -38,6 +43,12 @@ public class MyAdapter extends BaseAdapter {
         Firebase.setAndroidContext(context);
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
         myFirebase = refUrl.child("Children");
+        list.add("breakfast");
+        list.add("slip morning");
+        list.add("lunch");
+        list.add("slip afternoon");
+        list.add("feces");
+
     }
 
 
@@ -62,23 +73,23 @@ public class MyAdapter extends BaseAdapter {
     public View getView(final int position, final View convertView, ViewGroup parent) {
 
         View myView = convertView;
-        if(myView==null){
+        if (myView == null) {
 
-            myView = inflater.inflate(R.layout.activity_row_children,null);
+            myView = inflater.inflate(R.layout.activity_row_children, null);
         }
         c = childrenMap.get(childrenMap.keySet().toArray()[position]);
-        TextView lblChildName = (TextView)myView.findViewById(R.id.lblFirstName);
-        TextView lblChildLastName = (TextView)myView.findViewById(R.id.lblLastName);
-        TextView lblBirthDay = (TextView)myView.findViewById(R.id.lblDateOfBirth);
-        TextView lblPhoneNum = (TextView)myView.findViewById(R.id.lblPhone);
-       // TextView lblType = (TextView)myView.findViewById(R.id.lblGroup);
-        Button btnCbInfo = (Button)myView.findViewById(R.id.btnMoreInfo);
-        Button btnCbUpdate = (Button)myView.findViewById(R.id.btnUpdate);
-        Button btnCbRemove = (Button)myView.findViewById(R.id.btnRemove);
-        lblChildName.setText(c.getFirstName().toString()+" ");
-        lblChildLastName.setText(c.getLastName().toString()+ ", ");
-        lblBirthDay.setText(c.getDateOfBirth().toString()+ ", ");
-        lblPhoneNum.setText(c.getPhone().toString()+ ", ");
+        final TextView myCbText = (TextView)myView.findViewById(R.id.text);
+        TextView lblChildName = (TextView) myView.findViewById(R.id.lblFirstName);
+        TextView lblChildLastName = (TextView) myView.findViewById(R.id.lblLastName);
+        TextView lblBirthDay = (TextView) myView.findViewById(R.id.lblDateOfBirth);
+        TextView lblPhoneNum = (TextView) myView.findViewById(R.id.lblPhone);
+        Button btnCbInfo = (Button) myView.findViewById(R.id.btnMoreInfo);
+        Button btnCbUpdate = (Button) myView.findViewById(R.id.btnUpdate);
+        Button btnCbRemove = (Button) myView.findViewById(R.id.btnRemove);
+        lblChildName.setText(c.getFirstName().toString() + " ");
+        lblChildLastName.setText(c.getLastName().toString() + ", ");
+        lblBirthDay.setText(c.getDateOfBirth().toString() + ", ");
+        lblPhoneNum.setText(c.getPhone().toString() + ", ");
 
 
         btnCbInfo.setOnClickListener(new View.OnClickListener() {
@@ -96,8 +107,6 @@ public class MyAdapter extends BaseAdapter {
 
             }
         });
-
-
 
 
         btnCbRemove.setOnClickListener(new View.OnClickListener() {
@@ -127,8 +136,6 @@ public class MyAdapter extends BaseAdapter {
                 alertDialog.show();
 
 
-
-
             }
 
         });
@@ -140,7 +147,7 @@ public class MyAdapter extends BaseAdapter {
 
                 String key = (String) childrenMap.keySet().toArray()[position];
                 Children ch = (Children) getItem(position);
-                Intent myIntent = new Intent(context,ChildrenProfileActivity.class);
+                Intent myIntent = new Intent(context, ChildrenProfileActivity.class);
                 Bundle b = new Bundle();
                 b.putSerializable("childKey", key);
                 b.putSerializable("childValue", ch);
@@ -151,6 +158,84 @@ public class MyAdapter extends BaseAdapter {
             }
         });
 
+
+        View v = (View)myView.findViewById(R.id.openDialog);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final CharSequence[] dialogList = list.toArray(new CharSequence[list.size()]);
+                final AlertDialog.Builder builderDialog = new AlertDialog.Builder(context);
+                builderDialog.setTitle("Select Item");
+                int count = dialogList.length;
+                boolean[] is_checked = new boolean[count]; // set is_checked boolean false;
+
+                // Creating multiple selection by using setMutliChoiceItem method
+                builderDialog.setMultiChoiceItems(dialogList, is_checked,
+                        new DialogInterface.OnMultiChoiceClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton, boolean isChecked) {
+
+
+
+
+                            }
+
+                        });
+
+                builderDialog.setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                ListView list = ((AlertDialog) dialog).getListView();
+                                // make selected item in the comma seprated string
+                                StringBuilder stringBuilder = new StringBuilder();
+                                for (int i = 0; i < list.getCount(); i++) {
+                                    boolean checked = list.isItemChecked(i);
+
+                                    if (checked) {
+                                        if (stringBuilder.length() > 0)
+                                            stringBuilder.append(",");
+                                        stringBuilder.append(list.getItemAtPosition(i));
+
+                                    }
+                                }
+
+                        /*Check string builder is empty or not. If string builder is not empty.
+                          It will display on the screen.
+                         */
+                                if (stringBuilder.toString().trim().equals("")) {
+
+                                    myCbText.setText("Click here to open Dialog");
+                                    stringBuilder.setLength(0);
+
+                                } else {
+
+                                    myCbText.setText(stringBuilder);
+                                }
+                            }
+                        });
+
+
+
+                builderDialog.setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                myCbText.setText("Click here to open Dialog");
+                            }
+                        });
+
+                AlertDialog alert = builderDialog.create();
+                alert.show();
+
+            }
+
+        });
+
+
+
         return myView;
+
     }
-}
+
+    }

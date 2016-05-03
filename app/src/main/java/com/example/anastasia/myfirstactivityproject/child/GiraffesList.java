@@ -1,7 +1,10 @@
 package com.example.anastasia.myfirstactivityproject.child;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -12,7 +15,9 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class GiraffesList extends AppCompatActivity {
     private MyAdapter myAdapter;
@@ -22,6 +27,7 @@ public class GiraffesList extends AppCompatActivity {
     private Firebase myFirebase;
     private TextView lblCbGroupTitle;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +36,7 @@ public class GiraffesList extends AppCompatActivity {
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
         myFirebase = refUrl.child("Children");
         lstGiraffesKids = (ListView)findViewById(R.id.lstGiraffes);
+
         final String type = getIntent().getStringExtra("type");
         if(type.equals("baby")){
             lblCbGroupTitle = (TextView)findViewById(R.id.lblTitleGroup);
@@ -96,6 +103,8 @@ public class GiraffesList extends AppCompatActivity {
 
             }
         });
+
+
     }
 
 

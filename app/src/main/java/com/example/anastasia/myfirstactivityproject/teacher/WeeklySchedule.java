@@ -30,6 +30,7 @@ import com.firebase.client.ValueEventListener;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Map;
 
 public class WeeklySchedule extends AppCompatActivity {
     private TableLayout table;
@@ -55,7 +56,12 @@ public class WeeklySchedule extends AppCompatActivity {
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
         myFirebase = refUrl.child("Teachers");
         firebaseSchedule = refUrl.child("Schedule");
-        String str = (String) getIntent().getSerializableExtra("scheduleKey");
+
+        WorkScedule w = (WorkScedule) getIntent().getSerializableExtra("schedule");
+
+        if (w != null){
+
+        }
         setOnBtnClickSave();
         setCurrentDateOnView();
         onBtnClickChangeDate();
@@ -299,6 +305,9 @@ public class WeeklySchedule extends AppCompatActivity {
 
 
     }
+
+
+
 
 
 }

@@ -30,7 +30,7 @@ import java.util.HashMap;
 public class TeacherEntranceActivity extends AppCompatActivity {
     private Spinner spinner;
     private String[] group = {"baby", "toddler"};
-    private Firebase myFireBase;
+    private Firebase mySceduleRef;
     private  Query queryRef;
     private Button btnEntry,btnCbPickDate,btnCbShowSchedule;
     private HashMap<String, HashMap<String, TeacherSchedule>> hashMap;
@@ -46,8 +46,8 @@ public class TeacherEntranceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_entrance);
         Firebase.setAndroidContext(this);
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
-        myFireBase = refUrl.child("Schedule");
-        queryRef = myFireBase.orderByChild("startDate");
+        mySceduleRef = refUrl.child("Schedule");
+        //queryRef = mySceduleRef.orderByChild("startDate");
         showWeeklySchedule();
         spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, group);
@@ -133,22 +133,26 @@ public class TeacherEntranceActivity extends AppCompatActivity {
 
     public void showWeeklySchedule(){
         btnCbShowSchedule = (Button)findViewById(R.id.btnShowSchedule);
+
+
         btnCbShowSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String dateForScedule = lblCbDisplayDate.getText().toString();
+                queryRef = mySceduleRef.orderByKey().startAt(dateForScedule).endAt(dateForScedule);
+
                 queryRef.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                         WorkScedule w = dataSnapshot.getValue(WorkScedule.class);
                         String str = dataSnapshot.getKey();
-                        hashMap = new HashMap<>();
-                        hashMap.put(str,w.getSchedule());
+
                         if(str.compareTo(lblCbDisplayDate.getText().toString()) == 0){
 
                             Toast.makeText(getApplicationContext(),"This Date is fained",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(TeacherEntranceActivity.this, WeeklySchedule.class);
+                            Intent intent = new Intent(TeacherEntranceActivity.this, TeacherSchedule.class);
                             Bundle b = new Bundle();
-                            b.putSerializable("scheduleKey", str);
+                            b.putSerializable("schedule", w);
                             intent.putExtras(b);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             TeacherEntranceActivity.this.startActivity(intent);
