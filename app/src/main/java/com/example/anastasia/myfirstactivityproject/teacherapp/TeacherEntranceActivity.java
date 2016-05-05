@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anastasia.myfirstactivityproject.R;
+import com.example.anastasia.myfirstactivityproject.child.ChildrenListForTeacher;
 import com.example.anastasia.myfirstactivityproject.child.GiraffesList;
 import com.example.anastasia.myfirstactivityproject.pojo.TeacherSchedule;
 import com.example.anastasia.myfirstactivityproject.pojo.WorkScedule;
@@ -61,7 +62,7 @@ public class TeacherEntranceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String selectedGroup = (String) spinner.getSelectedItem();
-                Intent i = new Intent(TeacherEntranceActivity.this, GiraffesList.class);
+                Intent i = new Intent(TeacherEntranceActivity.this, ChildrenListForTeacher.class);
                 i.putExtra("type", selectedGroup);
                 startActivity(i);
 

@@ -17,10 +17,22 @@
         android:hint="Date"
         android:layout_marginTop="10dp"
         android:textSize="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#781703"
+        android:textStyle="bold"
+        android:id="@+id/lblTitleGroup"
+        android:layout_below="@+id/lblDateOftoDay"
+        />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_below="@id/lblDateOftoDay"
-        android:layout_marginTop="20dp"></ListView>
+        android:layout_below="@id/lblTitleGroup"
+        android:layout_marginTop="20dp"
+        android:id="@+id/lstChildrenForTeacher"></ListView>
 
 </RelativeLayout>

@@ -21,7 +21,7 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
     private Context context;
     private HashMap<String,Children> childrenMapForList;
     private LayoutInflater inflater;
-    private  Children c;
+    private Children c;
     private Firebase myFirebase;
 
     public ChildListForTiacherAdapter(Context context, HashMap<String, Children> childrenMap) {
@@ -54,11 +54,13 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
         View myView = convertView;
         if (myView == null) {
 
-            myView = inflater.inflate(R.layout.activity_row_children, null);
+            myView = inflater.inflate(R.layout.activity_row_childrenlist_fortiacher, null);
         }
         c = childrenMapForList.get(childrenMapForList.keySet().toArray()[position]);
         TextView lblChildName = (TextView) myView.findViewById(R.id.lblChildNameForTeachList);
         TextView lblChildLastName = (TextView) myView.findViewById(R.id.lblChildLastNameForTeachList);
+        lblChildName.setText(c.getFirstName().toString());
+        lblChildLastName.setText(c.getLastName().toString());
         return myView;
     }
 }
