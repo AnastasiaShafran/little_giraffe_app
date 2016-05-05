@@ -9,13 +9,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".teacher.ReadOnlyTeacherScheduleActivity">
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:id="@+id/lblDateForTeach"/>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:id="@+id/tableLayout2"
-        android:layout_below="@+id/lblChooseStartDate"
-        android:layout_marginTop="20dp">
+        android:layout_below="@+id/lblDateForTeach"
+        android:layout_marginTop="20dp"
+        >
     </TableLayout>
 
 
