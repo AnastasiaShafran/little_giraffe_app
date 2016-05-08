@@ -107,7 +107,7 @@
             android:id="@+id/btnToddlerList"
             android:text="Toddler Gerafes"
             android:layout_row="0"
-            android:layout_column="3"
+            android:layout_column="2"
             style="?android:attr/borderlessButtonStyle"
             android:textAllCaps="false"/>
 
@@ -166,16 +166,28 @@
             android:textAllCaps="false" />
 
         <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:textStyle="italic"
+        android:textColor="#050505"
+        android:background="#e9e9c423"
+        android:id="@+id/btnTeacherApp"
+        android:text="TeacherApp"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:textAllCaps="false" />
+        <Button
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:textStyle="italic"
-            android:textColor="#050505"
-            android:background="#e9e9c423"
-            android:id="@+id/btnTeacherApp"
-            android:text="TeacherApp"
+            android:textColor="#fffdfd"
+            android:background="#e980470a"
+            android:id="@+id/btnParentsApp"
+            android:text="ParentApp"
             android:layout_row="0"
-            android:layout_column="1"
+            android:layout_column="2"
             android:textAllCaps="false" />
     </TableRow>
     <TableRow

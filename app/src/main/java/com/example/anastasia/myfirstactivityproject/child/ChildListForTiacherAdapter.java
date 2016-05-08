@@ -5,7 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.anastasia.myfirstactivityproject.R;
 import com.example.anastasia.myfirstactivityproject.pojo.Children;
@@ -23,6 +28,9 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private Children c;
     private Firebase myFirebase;
+    private CheckBox checkBoxArrive, checkBoxNotArrive, checkBoxBreakfast;
+    Button btnCbUpdateActivity;
+
 
     public ChildListForTiacherAdapter(Context context, HashMap<String, Children> childrenMap) {
 
@@ -55,12 +63,29 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
         if (myView == null) {
 
             myView = inflater.inflate(R.layout.activity_row_childrenlist_fortiacher, null);
+
         }
         c = childrenMapForList.get(childrenMapForList.keySet().toArray()[position]);
         TextView lblChildName = (TextView) myView.findViewById(R.id.lblChildNameForTeachList);
         TextView lblChildLastName = (TextView) myView.findViewById(R.id.lblChildLastNameForTeachList);
         lblChildName.setText(c.getFirstName().toString());
         lblChildLastName.setText(c.getLastName().toString());
+        checkBoxArrive = (CheckBox)myView.findViewById(R.id.cbArrive);
+        checkBoxNotArrive = (CheckBox)myView.findViewById(R.id.cbNotArravi);
+        btnCbUpdateActivity = (Button)myView.findViewById(R.id.btnUpdateActivity);
+        btnCbUpdateActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBoxArrive.isChecked()){
+                    Toast.makeText(context,"Arraive",Toast.LENGTH_LONG).show();
+                }
+                if(checkBoxNotArrive.isChecked()){
+                    Toast.makeText(context,"Not Arrive",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
         return myView;
     }
 }

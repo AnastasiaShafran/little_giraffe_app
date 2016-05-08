@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.anastasia.myfirstactivityproject.ParentsApp.ParentsActivity;
 import com.example.anastasia.myfirstactivityproject.teacher.AddTeacherActivity;
 import com.example.anastasia.myfirstactivityproject.R;
 import com.example.anastasia.myfirstactivityproject.teacher.WeeklySchedule;
@@ -15,7 +16,7 @@ import com.example.anastasia.myfirstactivityproject.teacherapp.TeacherEntranceAc
 
 public class MainActivity extends AppCompatActivity implements OnClickListener{
    // private  Firebase myFirebase;
-    private Button btnCbProfile,btnCbBabyList,btnCbToddlerList,btnCbTeacherProf,btnCbSchedule,btnCbTeacherApp;
+    private Button btnCbProfile,btnCbBabyList,btnCbToddlerList,btnCbTeacherProf,btnCbSchedule,btnCbTeacherApp,btnCbParentApp;
     private TextView lblCbGroupTitle;
 
 
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         btnCbSchedule.setOnClickListener(this);
         btnCbTeacherApp = (Button)findViewById(R.id.btnTeacherApp);
         btnCbTeacherApp.setOnClickListener(this);
+        btnCbParentApp = (Button)findViewById(R.id.btnParentsApp);
+        btnCbParentApp.setOnClickListener(this);
     }
 
 
@@ -75,6 +78,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
                 teachAppIntent.putExtra("typeT","toddler");
                 startActivity(teachAppIntent);
                 break;
+            case R.id.btnParentsApp:
+                Intent toParentApp = new Intent(MainActivity.this, ParentsActivity.class);
+                startActivity(toParentApp);
 
 
             default: break;

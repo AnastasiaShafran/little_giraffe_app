@@ -3,19 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date"
-        android:id="@+id/textView0"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"/>
-</LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Arrive"
-        android:id="@+id/checkBox2"
+        android:id="@+id/cbArrive"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="10dp"/>
 
@@ -48,46 +36,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Not Arrive"
-        android:id="@+id/checkBox" />
+        android:id="@+id/cbNotArravi" />
 
 </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <RadioButton
+
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="breakfast"
-            android:id="@+id/radioButton" />
+            android:id="@+id/cbBreakfest" />
 
-        <RadioButton
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="morning sleep"
-            android:id="@+id/radioButton2" />
+            android:id="@+id/cbMorningSleep" />
 
-        <RadioButton
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="lanch"
-            android:id="@+id/radioButton3" />
+            android:id="@+id/cbLanch" />
 
-        <RadioButton
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="afternoon sleep"
-            android:id="@+id/radioButton4" />
+            android:id="@+id/cbAfternoonSleep" />
 
-        <RadioButton
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="fecal"
-            android:id="@+id/radioButton5" />
+            android:id="@+id/cbFecal" />
+
 
 
     </LinearLayout>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Activity"
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/btnUpdateActivity"
+        android:textAllCaps="false"/>
 
 
 </LinearLayout>
