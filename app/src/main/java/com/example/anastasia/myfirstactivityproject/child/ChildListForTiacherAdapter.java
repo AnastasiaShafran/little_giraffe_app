@@ -28,7 +28,7 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private Children c;
     private Firebase myFirebase;
-    private CheckBox checkBoxArrive, checkBoxNotArrive, checkBoxBreakfast;
+ //   private CheckBox checkBoxArrive, checkBoxNotArrive, checkBoxBreakfast;
     Button btnCbUpdateActivity;
 
 
@@ -58,7 +58,7 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View myView = convertView;
         if (myView == null) {
 
@@ -70,14 +70,22 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
         TextView lblChildLastName = (TextView) myView.findViewById(R.id.lblChildLastNameForTeachList);
         lblChildName.setText(c.getFirstName().toString());
         lblChildLastName.setText(c.getLastName().toString());
-        checkBoxArrive = (CheckBox)myView.findViewById(R.id.cbArrive);
-        checkBoxNotArrive = (CheckBox)myView.findViewById(R.id.cbNotArravi);
+
+
         btnCbUpdateActivity = (Button)myView.findViewById(R.id.btnUpdateActivity);
+        final View listView = myView;
+
         btnCbUpdateActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                CheckBox checkBoxArrive = (CheckBox)listView.findViewById(R.id.cbArrive);
+                CheckBox checkBoxNotArrive = (CheckBox)listView.findViewById(R.id.cbNotArravi);
+
+                //c = childrenMapForList.get(childrenMapForList.keySet().toArray()[position]);
+
                 if(checkBoxArrive.isChecked()){
-                    Toast.makeText(context,"Arraive",Toast.LENGTH_LONG).show();
+                    Toast.makeText(context,"Arrive",Toast.LENGTH_LONG).show();
                 }
                 if(checkBoxNotArrive.isChecked()){
                     Toast.makeText(context,"Not Arrive",Toast.LENGTH_LONG).show();

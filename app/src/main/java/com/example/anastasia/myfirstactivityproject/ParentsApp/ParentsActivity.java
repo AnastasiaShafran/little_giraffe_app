@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.anastasia.myfirstactivityproject.R;
 
@@ -15,6 +16,7 @@ public class ParentsActivity extends AppCompatActivity {
     private String[] group = {"baby", "toddler"};
     private Spinner spinner;
     private Button btnCbChooseKid;
+    private TextView tvKidName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class ParentsActivity extends AppCompatActivity {
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, group);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter);
+        tvKidName = (TextView)findViewById(R.id.lblSelectedKid);
         btnCbChooseKid = (Button)findViewById(R.id.btnChooseKid);
         btnCbChooseKid.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +36,10 @@ public class ParentsActivity extends AppCompatActivity {
                 startActivity(toKidList);
             }
         });
+
+        String strName = (String) getIntent().getSerializableExtra("MyChildName");
+        String strLastName = (String)getIntent().getSerializableExtra("MyChildLastName");
+        tvKidName.setText(strName + " " + strLastName);
 
 
     }
