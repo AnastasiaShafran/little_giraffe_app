@@ -26,7 +26,8 @@
         <activity android:name=".teacherapp.TeacherEntranceActivity" />
         <activity android:name=".teacher.ReadOnlyTeacherScheduleActivity" />
         <activity android:name=".child.ChildrenListForTeacher" />
-        <activity android:name=".ParentsApp.ParentsActivity"></activity>
+        <activity android:name=".ParentsApp.ParentsActivity" />
+        <activity android:name=".ParentsApp.ChildrenListForParents"></activity>
     </application>
 
 </manifest>
