@@ -2,6 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblDateOftoDay"
+        android:hint="Date"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"/>
 
 
     <LinearLayout
@@ -36,13 +44,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Not Arrive"
-        android:id="@+id/cbNotArravi" />
+        android:id="@+id/cbNotArravi"
+        />
 
 </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -84,7 +94,8 @@
         android:text="Update Activity"
         style="?android:attr/borderlessButtonStyle"
         android:id="@+id/btnUpdateActivity"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false"
+        android:layout_marginLeft="10dp"/>
 
 
 </LinearLayout>

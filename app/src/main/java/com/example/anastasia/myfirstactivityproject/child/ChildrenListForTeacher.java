@@ -1,5 +1,6 @@
 package com.example.anastasia.myfirstactivityproject.child;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -22,6 +23,8 @@ public class ChildrenListForTeacher extends AppCompatActivity {
     private TextView lblCbGroupTitle;
     private HashMap<String,Children> childrenMap;
     private Children myChildren;
+    private StringBuilder date;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class ChildrenListForTeacher extends AppCompatActivity {
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
         myFirebase = refUrl.child("Children");
         lstCbListForTeacher = (ListView)findViewById(R.id.lstChildrenForTeacher);
+
 
         final String type = getIntent().getStringExtra("type");
         if(type.equals("baby")){
@@ -43,7 +47,7 @@ public class ChildrenListForTeacher extends AppCompatActivity {
 
         }
         childrenMap = new HashMap<>();
-        childListForTiacherAdapter = new ChildListForTiacherAdapter(this,childrenMap);
+        childListForTiacherAdapter = new ChildListForTiacherAdapter(this,childrenMap,date);
         lstCbListForTeacher.setAdapter(childListForTiacherAdapter);
         myFirebase.addChildEventListener(new ChildEventListener() {
 
@@ -101,5 +105,10 @@ public class ChildrenListForTeacher extends AppCompatActivity {
 
 
 
+
+
     }
+//
+
+
 }
