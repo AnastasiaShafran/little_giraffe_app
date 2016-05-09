@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class AddTeacherActivity extends AppCompatActivity {
 
     private Firebase thFirebase;
-    private Button btnCbAddTh,btnCbTeacherList,btnCbUpdateTeacher;
+    private Button btnCbAddTh,btnCbUpdateTeacher;
     private EditText txtCbThName, txtCbThLastName, txtCbThAge, txtCbThPhone;
     private HashMap<String,Teacher> teacherMap = new HashMap<>();
     private Teacher teacher;
@@ -51,7 +51,7 @@ public class AddTeacherActivity extends AppCompatActivity {
         }
 
 
-        onBtnList();
+
 
     }
     public void update(Teacher teacherToUpdate){
@@ -122,16 +122,8 @@ public class AddTeacherActivity extends AppCompatActivity {
             }
         });
     }
-    public void onBtnList(){
-        btnCbTeacherList = (Button)findViewById(R.id.btnTeacherList);
-        btnCbTeacherList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentTch = new Intent(AddTeacherActivity.this,TeacherListActivity.class);
-                startActivity(intentTch);
-            }
-        });
-    }
+
+
     public void cleanControl(){
         txtCbThName.setText("");
         txtCbThLastName.setText("");

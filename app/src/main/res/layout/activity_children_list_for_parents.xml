@@ -14,7 +14,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose you Kid"
-        android:id="@+id/lblTitleChildForParents"/>
+        android:id="@+id/lblTitleChildForParents"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="#a35104"/>
 
     <ListView
         android:layout_width="wrap_content"
@@ -22,8 +27,7 @@
         android:id="@+id/lstChildrenForParents"
         android:layout_below="@+id/lblTitleChildForParents"
         android:layout_marginTop="20dp"
-
-
+        android:layout_marginLeft="10dp"
         ></ListView>
 
 </RelativeLayout>

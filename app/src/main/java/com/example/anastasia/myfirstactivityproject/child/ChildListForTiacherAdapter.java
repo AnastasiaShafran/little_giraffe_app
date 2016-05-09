@@ -1,6 +1,7 @@
 package com.example.anastasia.myfirstactivityproject.child;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.firebase.client.Firebase;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Created by Anastasia on 5/3/2016.
@@ -28,37 +30,39 @@ import java.util.LinkedHashMap;
 public class ChildListForTiacherAdapter extends BaseAdapter {
 
     private Context context;
-    private HashMap<String,Children> childrenMapForList;
-    private HashMap<String,KidGroupActivity> hashMap;
+//    private HashMap<String,Children> childrenMapForList;
+//    private HashMap<String,KidGroupActivity> hashMap;
     private LayoutInflater inflater;
-    private Children c;
+    //private Children c;
+
     private Firebase myFirebase;
     private Firebase firebase;
     private Button btnCbUpdateActivity;
-    private StringBuilder date;
+    private String today;
+
     private KidGroupActivity kidGroupActivity;
-    private KidActivityForDate kidActivityForDate;
+    //private KidActivityForDate kidActivityForDate;
 
 
 
-    public ChildListForTiacherAdapter(Context context, HashMap<String, Children> childrenMap,StringBuilder myDate) {
+    public ChildListForTiacherAdapter(Context context, KidGroupActivity kidActivity,String date) {
 
-        this.childrenMapForList = childrenMap;
+        this.kidGroupActivity= kidActivity;
         this.context = context;
-        this.date = myDate;
+        this.today = date;
         inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         Firebase.setAndroidContext(context);
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
-        myFirebase = refUrl.child("Children");
+
         firebase = refUrl.child("KidActivity");
 
 
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int  month = calendar.get(Calendar.MONTH );
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        date = new StringBuilder();
-        date.append(day).append(month+1).append(year);
+//        Calendar calendar = Calendar.getInstance();
+//        int year = calendar.get(Calendar.YEAR);
+//        int  month = calendar.get(Calendar.MONTH );
+//        int day = calendar.get(Calendar.DAY_OF_MONTH);
+//        date = new StringBuilder();
+//        date.append(day).append(month+1).append(year);
         //String strDate = date.toString();
 
 
@@ -67,11 +71,12 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return childrenMapForList.size();
+        return kidGroupActivity.getKidsActivity().size();
     }
 
     @Override
     public Object getItem(int position) {
+        Map<String,KidActivityForDate> childrenMapForList = kidGroupActivity.getKidsActivity();
         return childrenMapForList.get(childrenMapForList.keySet().toArray()[position]);
     }
 
@@ -88,13 +93,23 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
             myView = inflater.inflate(R.layout.activity_row_childrenlist_fortiacher, null);
 
         }
-        c = childrenMapForList.get(childrenMapForList.keySet().toArray()[position]);
+        Map<String,KidActivityForDate> childrenMapForList = kidGroupActivity.getKidsActivity();
+        String c = (String) childrenMapForList.keySet().toArray()[position];
+        KidActivityForDate activities =childrenMapForList.get(c);
+
         TextView lblChildName = (TextView) myView.findViewById(R.id.lblChildNameForTeachList);
         TextView lblChildLastName = (TextView) myView.findViewById(R.id.lblChildLastNameForTeachList);
         TextView  lblCbDateOftoDay = (TextView)myView.findViewById(R.id.lblDateOftoDay);
-        lblChildName.setText(c.getFirstName().toString());
-        lblChildLastName.setText(c.getLastName().toString());
-        lblCbDateOftoDay.setText(date);
+        lblChildName.setText(c);
+        lblChildLastName.setText(c);
+        lblCbDateOftoDay.setText(today);
+
+        ((CheckBox)myView.findViewById(R.id.cbArrive)).setChecked(activities.isArrived());
+        ((CheckBox)myView.findViewById(R.id.cbBreakfest)).setChecked(activities.isBreakfast());
+        ((CheckBox)myView.findViewById(R.id.cbMorningSleep)).setChecked(activities.isMorningSleep());
+        ((CheckBox)myView.findViewById(R.id.cbLanch)).setChecked(activities.isLunch());
+        ((CheckBox)myView.findViewById(R.id.cbAfternoonSleep)).setChecked(activities.isAfternoonSleep());
+        ((CheckBox)myView.findViewById(R.id.cbFecal)).setChecked(activities.isFecal());
 
         btnCbUpdateActivity = (Button)myView.findViewById(R.id.btnUpdateActivity);
         final View listView = myView;
@@ -102,26 +117,25 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
         btnCbUpdateActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                c = childrenMapForList.get(childrenMapForList.keySet().toArray()[position]);
 
-                CheckBox checkBoxArrive = (CheckBox)listView.findViewById(R.id.cbArrive);
-                CheckBox checkBoxBreakfast = (CheckBox)listView.findViewById(R.id.cbBreakfest);
+                Map<String,KidActivityForDate> childrenMapForList = kidGroupActivity.getKidsActivity();
+                String c = (String) childrenMapForList.keySet().toArray()[position];
+                KidActivityForDate activities =childrenMapForList.get(c);
 
-                if(checkBoxArrive.isChecked() || checkBoxBreakfast.isChecked() ){
-                    Toast.makeText(context,"Arrive",Toast.LENGTH_LONG).show();
-                    String name = c.getFirstName();
-                    KidActivityForDate kidActivityForDate = new KidActivityForDate();
-                    kidActivityForDate.setArrived(true);
-                    kidActivityForDate.setBreakfast(true);
-                    KidGroupActivity kidGroupActivity = new KidGroupActivity();
+                activities.setArrived( ((CheckBox)listView.findViewById(R.id.cbArrive)).isChecked());
+                activities.setBreakfast( ((CheckBox)listView.findViewById(R.id.cbBreakfest)).isChecked());
+                activities.setMorningSleep( ((CheckBox)listView.findViewById(R.id.cbMorningSleep)).isChecked());
+                activities.setLunch( ((CheckBox)listView.findViewById(R.id.cbLanch)).isChecked());
+                activities.setAfternoonSleep( ((CheckBox)listView.findViewById(R.id.cbAfternoonSleep)).isChecked());
+                activities.setFecal( ((CheckBox)listView.findViewById(R.id.cbFecal)).isChecked());
+                kidGroupActivity.getKidsActivity().put(c,activities);
 
-                    kidGroupActivity.getKidsActivity().put(name,kidActivityForDate);
 
-                    hashMap = new HashMap<String, KidGroupActivity>();
-                    hashMap.put(date.toString(),kidGroupActivity);
-                    firebase.setValue(hashMap);
 
-                }
+                firebase.child(today).setValue(kidGroupActivity);
+                //firebase.child(today).setValue("aaaaa");
+
+
 
 
             }

@@ -12,31 +12,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Halo Parent!"
-        android:textColor="#050505"
-        android:textSize="20dp"
+        android:text="Hello Parent!"
+        android:textColor="#a77206"
+        android:textSize="30dp"
         android:textStyle="bold"
-        android:id="@+id/lblParetHaloTitle"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose yor Kid Group"
-        android:textColor="#faf8f8"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/lblParetHaloTitle"
-        android:id="@+id/lblChooseKidParent"/>
-    <Spinner
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:background="#f9d546"
-        android:layout_alignTop="@+id/lblChooseKidParent"
-        android:layout_toRightOf="@+id/lblChooseKidParent"
-        android:layout_toEndOf="@+id/lblChooseKidParent"
-        android:layout_marginLeft="62dp"
-        android:layout_marginStart="62dp"></Spinner>
+        android:layout_marginLeft="15dp"
+        android:id="@+id/lblParentHello"/>
+
     <CalendarView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,13 +36,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose yor Kid"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         android:id="@+id/btnChooseKid"
         android:textColor="#faf8f8"
-        android:layout_alignBottom="@+id/lblChooseKidParent"
-        android:layout_toRightOf="@+id/spinner"
-        android:layout_toEndOf="@+id/spinner" />
+        android:layout_below="@+id/lblParentHello"
+        android:layout_marginTop="15dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,6 +49,8 @@
         android:layout_below="@id/btnChooseKid"
         android:textSize="25dp"
         android:textStyle="bold"
+        android:layout_marginLeft="15dp"
+        android:textColor="#e980470a"
         android:id="@+id/lblSelectedKid"/>
 
     <ListView

@@ -23,10 +23,6 @@ public class ParentsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parents);
         CalendarView calendarView = (CalendarView)findViewById(R.id.cwParentApp);
-        spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, group);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(arrayAdapter);
         tvKidName = (TextView)findViewById(R.id.lblSelectedKid);
         btnCbChooseKid = (Button)findViewById(R.id.btnChooseKid);
         btnCbChooseKid.setOnClickListener(new View.OnClickListener() {

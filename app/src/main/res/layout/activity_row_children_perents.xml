@@ -7,12 +7,20 @@
         android:layout_height="wrap_content"
         android:text="Name"
         android:id="@+id/lblChildNameForParents"
-        android:layout_marginTop="10dp"/>
+        android:textColor="#5ea414"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="10dp"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Last Name"
         android:id="@+id/lblChildLastNameForParents"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:textColor="#5ea414"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginLeft="10dp"/>
 
 </LinearLayout>

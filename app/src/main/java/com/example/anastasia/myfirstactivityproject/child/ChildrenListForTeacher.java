@@ -8,12 +8,17 @@ import android.widget.TextView;
 
 import com.example.anastasia.myfirstactivityproject.R;
 import com.example.anastasia.myfirstactivityproject.pojo.Children;
+import com.example.anastasia.myfirstactivityproject.pojo.KidActivityForDate;
+import com.example.anastasia.myfirstactivityproject.pojo.KidGroupActivity;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class ChildrenListForTeacher extends AppCompatActivity {
@@ -23,7 +28,8 @@ public class ChildrenListForTeacher extends AppCompatActivity {
     private TextView lblCbGroupTitle;
     private HashMap<String,Children> childrenMap;
     private Children myChildren;
-    private StringBuilder date;
+    //private StringBuilder date;
+    private String today;
 
 
     @Override
@@ -31,9 +37,13 @@ public class ChildrenListForTeacher extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_children_list_for_teacher);
         Firebase.setAndroidContext(this);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
+        today = sdf.format(new Date());
+
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
-        myFirebase = refUrl.child("Children");
-        lstCbListForTeacher = (ListView)findViewById(R.id.lstChildrenForTeacher);
+        //myFirebase = refUrl.child("Children");
+
 
 
         final String type = getIntent().getStringExtra("type");
@@ -46,66 +56,58 @@ public class ChildrenListForTeacher extends AppCompatActivity {
             lblCbGroupTitle.setText("Toddler Giraffes");
 
         }
-        childrenMap = new HashMap<>();
-        childListForTiacherAdapter = new ChildListForTiacherAdapter(this,childrenMap,date);
-        lstCbListForTeacher.setAdapter(childListForTiacherAdapter);
-        myFirebase.addChildEventListener(new ChildEventListener() {
 
+        populateAdapterWithData(refUrl);
+        //childrenMap = new HashMap<>();
+       // FIX childListForTiacherAdapter = new ChildListForTiacherAdapter(this,childrenMap,date);
+        //lstCbListForTeacher.setAdapter(childListForTiacherAdapter);
+
+
+
+
+
+    }
+
+    void populateAdapterWithData(final Firebase baseRef){
+        baseRef.child("KidActivity").child(today).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                myChildren = dataSnapshot.getValue(Children.class);
-                String key = dataSnapshot.getKey();
-                if (myChildren.getGroup().compareTo(type) == 0) {
-                    childrenMap.put(key, myChildren);
-                   childListForTiacherAdapter.notifyDataSetChanged();
-                    lstCbListForTeacher.invalidate();
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    KidGroupActivity kidGroupActivity = snapshot.getValue(KidGroupActivity.class);
+                    childListForTiacherAdapter = new ChildListForTiacherAdapter(ChildrenListForTeacher.this,kidGroupActivity,today);
+                    ((ListView)findViewById(R.id.lstChildrenForTeacher)).setAdapter(childListForTiacherAdapter);
 
+                }
+                else {
+                    baseRef.child("Children").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            KidGroupActivity kidGroupActivity = new KidGroupActivity();
+
+                            for (DataSnapshot s : dataSnapshot.getChildren()){
+                                Children ch = s.getValue(Children.class);
+                                String name = ch.getFirstName() + " " + ch.getLastName();
+
+                                kidGroupActivity.getKidsActivity().put(name,new KidActivityForDate());
+                            }
+                            childListForTiacherAdapter = new ChildListForTiacherAdapter(ChildrenListForTeacher.this,kidGroupActivity,today);
+                            ((ListView)findViewById(R.id.lstChildrenForTeacher)).setAdapter(childListForTiacherAdapter);
+
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(FirebaseError firebaseError) {
+
+                        }
+                    });
                 }
             }
 
             @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                myChildren = dataSnapshot.getValue(Children.class);
-                String key = dataSnapshot.getKey();
-                if (myChildren.getGroup().compareTo(type) == 0) {
-                    childrenMap.put(key, myChildren);
-                    childListForTiacherAdapter.notifyDataSetChanged();
-                    lstCbListForTeacher.invalidate();
-
-
-                }
-
-
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                String key = dataSnapshot.getKey();
-                childrenMap.remove(key);
-                childListForTiacherAdapter.notifyDataSetChanged();
-                lstCbListForTeacher.invalidate();
-
-
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
+            public void onCancelled(FirebaseError firebaseError) { }
         });
-
-
-
-
 
     }
 //

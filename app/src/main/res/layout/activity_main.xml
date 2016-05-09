@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:shrinkColumns="1"
-        tools:context=".child.MainActivity"
-        android:background="@drawable/giraffbackground">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:aandroid="http://schemas.android.com/apk/res-auto"
+    android:shrinkColumns="1"
+    tools:context=".child.MainActivity"
+    android:background="@drawable/giraffbackground">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -189,6 +190,17 @@
             android:layout_row="0"
             android:layout_column="2"
             android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:textStyle="italic"
+            android:textColor="#050505"
+            android:background="#e9e9c423"
+            android:text="TeacherList"
+            android:id="@+id/btnTeacherList"
+            android:textAllCaps="false"
+            android:layout_column="4" />
     </TableRow>
     <TableRow
         android:layout_width="match_parent"

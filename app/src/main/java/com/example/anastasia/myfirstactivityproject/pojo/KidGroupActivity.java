@@ -25,5 +25,8 @@ public class KidGroupActivity implements Serializable{
     public void setKidsActivity(Map<String, KidActivityForDate> kidsActivity) {
         this.kidsActivity = kidsActivity;
     }
+    public void add(String name, KidActivityForDate kA){
+        kidsActivity.put(name,kA);
+    }
 
 }
