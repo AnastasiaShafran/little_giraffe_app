@@ -29,4 +29,16 @@ public class KidGroupActivity implements Serializable{
         kidsActivity.put(name,kA);
     }
 
+    public KidActivityForDate getActivityByChildName(String fullName) {
+        KidActivityForDate kD = null;
+        for (Map.Entry<String, KidActivityForDate> entry : kidsActivity.entrySet()) {
+            if (entry.getKey().compareTo(fullName) == 0)
+                return entry.getValue();
+        }
+        return null;
+
+    }
+
+
+
 }

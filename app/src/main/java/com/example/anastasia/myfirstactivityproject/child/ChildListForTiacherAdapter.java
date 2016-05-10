@@ -57,16 +57,6 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
         firebase = refUrl.child("KidActivity");
 
 
-//        Calendar calendar = Calendar.getInstance();
-//        int year = calendar.get(Calendar.YEAR);
-//        int  month = calendar.get(Calendar.MONTH );
-//        int day = calendar.get(Calendar.DAY_OF_MONTH);
-//        date = new StringBuilder();
-//        date.append(day).append(month+1).append(year);
-        //String strDate = date.toString();
-
-
-
     }
 
     @Override
@@ -87,7 +77,9 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+
         View myView = convertView;
+
         if (myView == null) {
 
             myView = inflater.inflate(R.layout.activity_row_childrenlist_fortiacher, null);
@@ -98,11 +90,10 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
         KidActivityForDate activities =childrenMapForList.get(c);
 
         TextView lblChildName = (TextView) myView.findViewById(R.id.lblChildNameForTeachList);
-        TextView lblChildLastName = (TextView) myView.findViewById(R.id.lblChildLastNameForTeachList);
         TextView  lblCbDateOftoDay = (TextView)myView.findViewById(R.id.lblDateOftoDay);
-        lblChildName.setText(c);
-        lblChildLastName.setText(c);
         lblCbDateOftoDay.setText(today);
+        lblChildName.setText(c);
+
 
         ((CheckBox)myView.findViewById(R.id.cbArrive)).setChecked(activities.isArrived());
         ((CheckBox)myView.findViewById(R.id.cbBreakfest)).setChecked(activities.isBreakfast());
@@ -133,7 +124,7 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
 
 
                 firebase.child(today).setValue(kidGroupActivity);
-                //firebase.child(today).setValue("aaaaa");
+
 
 
 
