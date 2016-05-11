@@ -78,7 +78,7 @@ public class MyAdapter extends BaseAdapter {
             myView = inflater.inflate(R.layout.activity_row_children, null);
         }
         c = childrenMap.get(childrenMap.keySet().toArray()[position]);
-        final TextView myCbText = (TextView)myView.findViewById(R.id.text);
+        //final TextView myCbText = (TextView)myView.findViewById(R.id.text);
         TextView lblChildName = (TextView) myView.findViewById(R.id.lblFirstName);
         TextView lblChildLastName = (TextView) myView.findViewById(R.id.lblLastName);
         TextView lblBirthDay = (TextView) myView.findViewById(R.id.lblDateOfBirth);
@@ -159,82 +159,12 @@ public class MyAdapter extends BaseAdapter {
         });
 
 
-        View v = (View)myView.findViewById(R.id.openDialog);
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final CharSequence[] dialogList = list.toArray(new CharSequence[list.size()]);
-                final AlertDialog.Builder builderDialog = new AlertDialog.Builder(context);
-                builderDialog.setTitle("Select Item");
-                int count = dialogList.length;
-                boolean[] is_checked = new boolean[count]; // set is_checked boolean false;
-
-                // Creating multiple selection by using setMutliChoiceItem method
-                builderDialog.setMultiChoiceItems(dialogList, is_checked,
-                        new DialogInterface.OnMultiChoiceClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton, boolean isChecked) {
-
-
-
-
-                            }
-
-                        });
-
-                builderDialog.setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                ListView list = ((AlertDialog) dialog).getListView();
-                                // make selected item in the comma seprated string
-                                StringBuilder stringBuilder = new StringBuilder();
-                                for (int i = 0; i < list.getCount(); i++) {
-                                    boolean checked = list.isItemChecked(i);
-
-                                    if (checked) {
-                                        if (stringBuilder.length() > 0)
-                                            stringBuilder.append(",");
-                                        stringBuilder.append(list.getItemAtPosition(i));
-
-                                    }
-                                }
-
-                        /*Check string builder is empty or not. If string builder is not empty.
-                          It will display on the screen.
-                         */
-                                if (stringBuilder.toString().trim().equals("")) {
-
-                                    myCbText.setText("Click here to open Dialog");
-                                    stringBuilder.setLength(0);
-
-                                } else {
-
-                                    myCbText.setText(stringBuilder);
-                                }
-                            }
-                        });
-
-
-
-                builderDialog.setNegativeButton("Cancel",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                myCbText.setText("Click here to open Dialog");
-                            }
-                        });
-
-                AlertDialog alert = builderDialog.create();
-                alert.show();
-
-            }
-
-        });
-
-
-
         return myView;
+
+
+
+
+
 
     }
 

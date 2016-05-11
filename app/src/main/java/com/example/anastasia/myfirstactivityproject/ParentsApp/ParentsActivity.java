@@ -70,6 +70,46 @@ public class ParentsActivity extends AppCompatActivity {
                     if (keyDate.compareTo(today)==0){
                         KidGroupActivity kG = dataSnapshot.getValue(KidGroupActivity.class);
                         KidActivityForDate activities = kG.getActivityByChildName(fullName);
+                        TextView tvArrive = (TextView)findViewById(R.id.lblArrive);
+                        TextView tvMorningSleep = (TextView)findViewById(R.id.lblMorningSleep);
+                        TextView tvLaunch = (TextView)findViewById(R.id.lblLaunch);
+                        TextView tvAfternunSleep = (TextView)findViewById(R.id.lblAfternoonSleep);
+                        TextView tvBreakfast = (TextView)findViewById(R.id.lblBreakfast);
+                        TextView tvFecal = (TextView)findViewById(R.id.lblFecal);
+                        if(activities.isArrived()){
+                            tvArrive.setText("Arrive");
+                        }else{
+                            tvArrive.setText("Not Arrive");
+                        }
+                        if(activities.isBreakfast()){
+                            tvBreakfast.setText("Eat Breakfast");
+
+                        }else{
+                            tvBreakfast.setText("Not eat");
+                        }
+                        if(activities.isMorningSleep()){
+                            tvMorningSleep.setText("Sleep");
+                        }else{
+                            tvMorningSleep.setText("Not Sleep");
+                        }
+                        if(activities.isLunch()){
+                            tvLaunch.setText("Eat Launch");
+                        }else {
+                            tvLaunch.setText("Not eat");
+                        }
+                        if(activities.isAfternoonSleep()){
+                            tvAfternunSleep.setText("Sleep");
+                        }else{
+                            tvAfternunSleep.setText("Not Sleep");
+                        }
+                        if(activities.isFecal()){
+                            tvFecal.setText("Fecal");
+                        }else{
+                            tvFecal.setText("No Fecal");
+                        }
+
+
+
 
 
                     }
