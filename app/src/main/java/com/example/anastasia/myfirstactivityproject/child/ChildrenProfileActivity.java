@@ -125,8 +125,6 @@ public class ChildrenProfileActivity extends AppCompatActivity {
                 upChild.setEmailMom(momEmail);
                 upChild.setEmailDad(dadEmail);
                 upChild.setGroup(group);
-
-                //myChildrenMap.put(str, upChild);
                 firebase.child(str).setValue(upChild);
 
 

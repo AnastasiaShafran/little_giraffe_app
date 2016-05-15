@@ -86,7 +86,8 @@ xmlns:tools="http://schemas.android.com/tools"
             android:layout_marginTop="10dp"
             android:background="#f9c8ae"
             android:id="@+id/txtThAge"
-            android:numeric="integer"
+            android:digits="0123456789."
+            android:inputType="numberDecimal"
             />
     </LinearLayout>
     <LinearLayout
@@ -110,7 +111,9 @@ xmlns:tools="http://schemas.android.com/tools"
             android:layout_marginTop="10dp"
             android:background="#f9c8ae"
             android:id="@+id/txtThPhone"
-            android:numeric="integer"/>
+            android:digits="0123456789."
+            android:inputType="numberDecimal"
+            />
     </LinearLayout>
     <Button
         android:layout_width="wrap_content"

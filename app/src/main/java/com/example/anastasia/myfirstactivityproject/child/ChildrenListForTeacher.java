@@ -28,7 +28,6 @@ public class ChildrenListForTeacher extends AppCompatActivity {
     private TextView lblCbGroupTitle;
     private HashMap<String,Children> childrenMap;
     private Children myChildren;
-    //private StringBuilder date;
     private String today;
 
 
@@ -42,8 +41,6 @@ public class ChildrenListForTeacher extends AppCompatActivity {
         today = sdf.format(new Date());
 
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
-        //myFirebase = refUrl.child("Children");
-
 
 
         final String type = getIntent().getStringExtra("type");
@@ -58,9 +55,6 @@ public class ChildrenListForTeacher extends AppCompatActivity {
         }
 
         populateAdapterWithData(refUrl);
-        //childrenMap = new HashMap<>();
-       // FIX childListForTiacherAdapter = new ChildListForTiacherAdapter(this,childrenMap,date);
-        //lstCbListForTeacher.setAdapter(childListForTiacherAdapter);
 
 
 

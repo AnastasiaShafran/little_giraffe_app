@@ -10,8 +10,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello Anastasia!"
-        android:textSize="15dp"
+        android:text="Hello Admin!"
+        android:textSize="25dp"
         android:textStyle="bold"
         android:textColor="#050505"
         android:id="@+id/lblTitleBaby"
@@ -19,58 +19,11 @@
         android:layout_marginLeft="10dp"
         />
 
-    <TableRow>
-
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_column="0">
-
-
-        </TableRow>
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </TableRow>
-
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
 
         <Button
             android:layout_width="80dp"
@@ -93,7 +46,7 @@
             android:id="@+id/btnBabyList"
             android:textStyle="italic"
             android:textColor="#fafaf8"
-            android:background="#e958310f"
+            android:background="#e980470a"
             android:layout_row="0"
             android:layout_column="1"
             style="?android:attr/borderlessButtonStyle"
@@ -129,29 +82,8 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp">
 
         <Button
             style="?android:attr/borderlessButtonStyle"
@@ -167,45 +99,41 @@
             android:textAllCaps="false" />
 
         <Button
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:textStyle="italic"
-        android:textColor="#050505"
-        android:background="#e9e9c423"
-        android:id="@+id/btnTeacherApp"
-        android:text="TeacherApp"
-        android:layout_row="0"
-        android:layout_column="1"
-        android:textAllCaps="false" />
-        <Button
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:textStyle="italic"
-            android:textColor="#fffdfd"
-            android:background="#e980470a"
-            android:id="@+id/btnParentsApp"
-            android:text="ParentApp"
+            android:textColor="#050505"
+            android:background="#e9e9c423"
+            android:id="@+id/btnTeacherApp"
+            android:text="TeacherApp"
             android:layout_row="0"
-            android:layout_column="2"
+            android:layout_column="1"
             android:textAllCaps="false" />
 
         <Button
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:textStyle="italic"
-            android:textColor="#050505"
-            android:background="#e9e9c423"
+            android:textColor="#fffdfd"
+            android:background="#e980470a"
             android:text="TeacherList"
             android:id="@+id/btnTeacherList"
             android:textAllCaps="false"
-            android:layout_column="4" />
-    </TableRow>
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:layout_column="2" />
 
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:textStyle="italic"
+            android:textColor="#050505"
+            android:background="#e9e9c423"
+            android:id="@+id/btnParentsApp"
+            android:text="ParentApp"
+            android:layout_row="0"
+            android:layout_column="4"
+            android:textAllCaps="false" />
     </TableRow>
 
 

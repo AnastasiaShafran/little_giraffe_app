@@ -29,7 +29,7 @@ public class TeacherAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
     private TextView lblCbTchName, lblCbTchLastName, lblCbTchAge, lblCbTchPhone;
-    private Button btnCbMoreInfoTeacher, btnCbTeacherUpdate,btnCbTeacherRemove;
+    private Button  btnCbTeacherUpdate,btnCbTeacherRemove;
     private HashMap<String, Teacher> teacherHashMap;
     private Teacher teacher;
     private Firebase myFirebase;
@@ -73,7 +73,6 @@ public class TeacherAdapter extends BaseAdapter {
         lblCbTchLastName = (TextView)myView.findViewById(R.id.lblLastTeacherName);
         lblCbTchAge = (TextView)myView.findViewById(R.id.lblTeacherAge);
         lblCbTchPhone = (TextView)myView.findViewById(R.id.lblTeacherPhone);
-        btnCbMoreInfoTeacher = (Button)myView.findViewById(R.id.btnMoreTeacherInfo);
         btnCbTeacherUpdate = (Button)myView.findViewById(R.id.btnTeacherUpdate);
         btnCbTeacherRemove = (Button)myView.findViewById(R.id.btnTeacherRemove);
         lblCbTchName.setText(teacher.getName().toString() + " ");

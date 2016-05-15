@@ -30,11 +30,7 @@ import java.util.Map;
 public class ChildListForTiacherAdapter extends BaseAdapter {
 
     private Context context;
-//    private HashMap<String,Children> childrenMapForList;
-//    private HashMap<String,KidGroupActivity> hashMap;
     private LayoutInflater inflater;
-    //private Children c;
-
     private Firebase myFirebase;
     private Firebase firebase;
     private Button btnCbUpdateActivity;

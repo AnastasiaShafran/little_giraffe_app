@@ -12,6 +12,8 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class TeacherListActivity extends AppCompatActivity {
     private TeacherAdapter adapter;
@@ -32,6 +34,7 @@ public class TeacherListActivity extends AppCompatActivity {
         lstCbTeacher = (ListView)findViewById(R.id.lstTeacher);
         lstCbTeacher.setAdapter(adapter);
 
+
         thFirebase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -40,6 +43,9 @@ public class TeacherListActivity extends AppCompatActivity {
                 hashMapTeach.put(key,myTeacher);
                 adapter.notifyDataSetChanged();
                 lstCbTeacher.invalidate();
+
+
+
             }
 
             @Override
@@ -72,5 +78,9 @@ public class TeacherListActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+
     }
 }

@@ -1,0 +1,51 @@
+package com.example.anastasia.myfirstactivityproject.weather;
+
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.ResponseBody;
+
+import java.io.IOException;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Type;
+
+import retrofit.Converter;
+
+/**
+ * Created by Tal on 15/05/2016.
+ */
+public class ConverterClass extends Converter.Factory {
+    public Converter<ResponseBody, ?>
+    fromResponseBody(Type type, Annotation[] annotations)
+    {
+        if(String.class.equals(type))
+        {
+            return new Converter<ResponseBody, Object>() {
+                @Override
+                public Object convert(ResponseBody value) throws IOException {
+                    return value.string();
+                }
+            };
+
+        } return null;
+    }
+
+
+    public Converter<?, RequestBody> toRequestBody
+            (Type type, Annotation[] annotations)
+    {
+        if(String.class.equals(type))
+        {
+            return new Converter<String, RequestBody>() {
+                @Override
+                public RequestBody convert(String value) throws IOException {
+                    return RequestBody.create(MediaType.parse("text/plain"), value);
+                }
+
+
+            };
+
+        }
+        return null;
+    }
+
+}
