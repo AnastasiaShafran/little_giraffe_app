@@ -237,17 +237,21 @@
         android:layout_height="70dp"
         android:id="@+id/imgIcon"
         android:layout_alignTop="@+id/btnChooseKid"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+       />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lblWeather"
+        android:text="City"
         android:textSize="20sp"
         android:textStyle="bold|italic"
-        android:layout_below="@+id/lblParentHello"
-        android:layout_toRightOf="@+id/imgIcon"
-        android:layout_toEndOf="@+id/imgIcon" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_alignTop="@+id/lblTemp"
+        android:layout_toRightOf="@+id/lblTemp"
+        android:layout_toEndOf="@+id/lblTemp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -255,21 +259,21 @@
         android:id="@+id/lblDesc"
         android:textSize="16sp"
         android:textStyle="italic"
-        android:layout_below="@+id/lblWeather"
-        android:layout_alignLeft="@+id/lblWeather"
-        android:layout_alignStart="@+id/lblWeather" />
+        android:text="Desc"
+        android:layout_above="@+id/lblSelectedKid"
+        android:layout_alignLeft="@+id/lblTemp"
+        android:layout_alignStart="@+id/lblTemp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lblTemp"
-        android:textSize="25sp"
+        android:text="Temp"
+        android:textSize="20sp"
         android:textStyle="italic"
-        android:layout_alignBottom="@+id/imgIcon"
-        android:layout_alignRight="@+id/cwParentApp"
-        android:layout_alignEnd="@+id/cwParentApp"
-        android:layout_marginRight="66dp"
-        android:layout_marginEnd="66dp" />
+        android:layout_alignTop="@+id/imgIcon"
+        android:layout_toRightOf="@+id/imgIcon"
+        android:layout_toEndOf="@+id/imgIcon" />
 
 
 </RelativeLayout>

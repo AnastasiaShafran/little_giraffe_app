@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".child.MainActivity">
+        <activity android:name=".child.MainEntryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +27,8 @@
         <activity android:name=".teacher.ReadOnlyTeacherScheduleActivity" />
         <activity android:name=".child.ChildrenListForTeacher" />
         <activity android:name=".ParentsApp.ParentsActivity" />
-        <activity android:name=".ParentsApp.ChildrenListForParents"></activity>
+        <activity android:name=".ParentsApp.ChildrenListForParents" />
+        <activity android:name=".EntryActivity.MainActivity"></activity>
     </application>
 
 </manifest>

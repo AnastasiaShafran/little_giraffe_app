@@ -7,10 +7,9 @@ import java.util.List;
  */
 public class WeatherResponse {
     final transient String DEGREE  = "\u00b0";
-    // Base address to get icon
     private final String ICON_ADDRESS = "http://openweathermap.org/img/w/";
 
-    // inner classes
+
     static class Weather
     {
         String description;
@@ -20,25 +19,25 @@ public class WeatherResponse {
     {
         Double temp;
     }
-    // Member variables of a class
+
     List<Weather> weather;
     Main main;
     String name;
 
-    // Create a method that convert temp to Celsius
     public String getTempraturCelsius()
     {
-        Double temp = main.temp - 272.15f;
+        Double temp = main.temp - 272f;
 
-        return String.format("%.2f", temp) + DEGREE;
+
+        return String.format("%.2f", temp) + DEGREE + "C" + "  " + "in";
     }
 
-    // Create method that get the icon base on address
+
     public String getIconAddress() {
         return ICON_ADDRESS + weather.get(0).icon + ".png";
     }
 
-    // Create method that get Description
+
     public String getDescription()
     {
         if (weather != null && weather.size() > 0)

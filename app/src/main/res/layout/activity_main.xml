@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:aandroid="http://schemas.android.com/apk/res-auto"
     android:shrinkColumns="1"
-    tools:context=".child.MainActivity"
+    tools:context=".child.MainEntryActivity"
     android:background="@drawable/giraffbackground">
     <TextView
         android:layout_width="wrap_content"
