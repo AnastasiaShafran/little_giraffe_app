@@ -4,12 +4,17 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +35,7 @@ public class TeacherAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater;
     private TextView lblCbTchName, lblCbTchLastName, lblCbTchAge, lblCbTchPhone;
     private Button  btnCbTeacherUpdate,btnCbTeacherRemove;
+    private ImageView imgView;
     private HashMap<String, Teacher> teacherHashMap;
     private Teacher teacher;
     private Firebase myFirebase;
@@ -75,10 +81,17 @@ public class TeacherAdapter extends BaseAdapter {
         lblCbTchPhone = (TextView)myView.findViewById(R.id.lblTeacherPhone);
         btnCbTeacherUpdate = (Button)myView.findViewById(R.id.btnTeacherUpdate);
         btnCbTeacherRemove = (Button)myView.findViewById(R.id.btnTeacherRemove);
+        imgView = (ImageView)myView.findViewById(R.id.imgView);
+
         lblCbTchName.setText(teacher.getName().toString() + " ");
         lblCbTchLastName.setText(teacher.getLastName().toString()+", ");
         lblCbTchAge.setText(String.valueOf(teacher.getAge()) + ",");
         lblCbTchPhone.setText(String.valueOf(teacher.getPhone()) + ".");
+
+        byte[] byteArray= Base64.decode(teacher.getImage(), Base64.DEFAULT);
+        Bitmap avatar = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        imgView.setImageBitmap(avatar);
+
 
         btnCbTeacherUpdate.setOnClickListener(new View.OnClickListener() {
             @Override

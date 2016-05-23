@@ -1,140 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:aandroid="http://schemas.android.com/apk/res-auto"
-    android:shrinkColumns="1"
     tools:context=".child.MainEntryActivity"
+    android:orientation="vertical"
     android:background="@drawable/giraffbackground">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello Admin!"
-        android:textSize="25dp"
+        android:textSize="35dp"
         android:textStyle="bold"
         android:textColor="#050505"
         android:id="@+id/lblTitleBaby"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
         />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp">
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center">
         <Button
-            android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Children Profile"
             android:id="@+id/btnProfile"
             android:textStyle="italic"
             android:textColor="#050505"
             android:background="#e9deb213"
-            android:layout_row="0"
-            android:layout_column="0"
             style="?android:attr/borderlessButtonStyle"
             android:textAllCaps="false"
             />
 
         <Button
-            android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Baby Giraffes"
             android:id="@+id/btnBabyList"
             android:textStyle="italic"
             android:textColor="#fafaf8"
             android:background="#e980470a"
-            android:layout_row="0"
-            android:layout_column="1"
             style="?android:attr/borderlessButtonStyle"
             android:textAllCaps="false"/>
 
         <Button
-            android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textStyle="italic"
             android:textColor="#050505"
             android:background="#e9e9c423"
             android:id="@+id/btnToddlerList"
             android:text="Toddler Gerafes"
-            android:layout_row="0"
-            android:layout_column="2"
             style="?android:attr/borderlessButtonStyle"
             android:textAllCaps="false"/>
 
-        <Button
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:textStyle="italic"
-            android:textColor="#fffdfd"
-            android:background="#e980470a"
-            android:id="@+id/btnTeacherProfile"
-            android:text="Teacher Profile"
-            android:layout_row="0"
-            android:layout_column="4"
-            android:textAllCaps="false" />
+    </LinearLayout>
 
-    </TableRow>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp">
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textColor="#fffdfd"
+        android:background="#e980470a"
+        android:id="@+id/btnTeacherProfile"
+        android:text="Teacher Profile"
+        android:textAllCaps="false" />
 
-        <Button
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:textStyle="italic"
-            android:textColor="#fffdfd"
-            android:background="#e980470a"
-            android:id="@+id/btnSchedule"
-            android:text="Schedule"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:textAllCaps="false" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textColor="#050505"
+        android:background="#e9e9c423"
+        android:text="Teacher List"
+        android:id="@+id/btnTeacherList"
+        android:textAllCaps="false"
+         />
 
-        <Button
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:textStyle="italic"
-            android:textColor="#050505"
-            android:background="#e9e9c423"
-            android:id="@+id/btnTeacherApp"
-            android:text="TeacherApp"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:textAllCaps="false" />
-
-        <Button
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:textStyle="italic"
-            android:textColor="#fffdfd"
-            android:background="#e980470a"
-            android:text="TeacherList"
-            android:id="@+id/btnTeacherList"
-            android:textAllCaps="false"
-            android:layout_column="2" />
-
-        <Button
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:textStyle="italic"
-            android:textColor="#050505"
-            android:background="#e9e9c423"
-            android:id="@+id/btnParentsApp"
-            android:text="ParentApp"
-            android:layout_row="0"
-            android:layout_column="4"
-            android:textAllCaps="false" />
-    </TableRow>
+       <Button
+           style="?android:attr/borderlessButtonStyle"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textStyle="italic"
+           android:textColor="#fffdfd"
+           android:background="#e980470a"
+           android:id="@+id/btnSchedule"
+           android:text="Create Schedule"
+           android:textAllCaps="false" />
+        
+    </LinearLayout>
 
 
-</TableLayout>
+</LinearLayout>

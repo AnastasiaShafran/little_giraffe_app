@@ -11,6 +11,16 @@ public class Teacher implements Serializable{
     private int age;
     private int phone;
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    private String image;
+
     public Teacher() {
     }
 

@@ -12,82 +12,54 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello Teacher!"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:textColor="#f1e9f728"
+        android:text="@string/teachEntrance"
+        android:textSize="45dp"
+        android:textColor="#f5fe0a"
         android:layout_centerHorizontal="true"
         android:id="@+id/lblTitleTeacherApp"
+        android:layout_marginTop="30dp"
         />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Please choose you work Group"
-        android:layout_below="@+id/lblTitleTeacherApp"
-        android:textSize="17dp"
-        android:textStyle="bold"
-        android:textColor="#101010"
-        android:layout_marginTop="15dp"
-        android:id="@+id/lblChooseGroup"
-        />
-    <Spinner
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblChooseGroup"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="40dp"
-        android:id="@+id/spinner"
-        android:background="#f1e9f728"
-        ></Spinner>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Entry"
+        android:text="View your Little Giraffes"
         style="?android:attr/borderlessButtonStyle"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:id="@+id/btnEntryTeacher"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/yellowbutton"
+        android:layout_marginEnd="40dp"
+        android:layout_below="@+id/lblTitleTeacherApp"
+        android:layout_toStartOf="@+id/btnShowSchedule" />
 
-        android:layout_below="@+id/lblChooseGroup"
-        android:layout_toRightOf="@+id/lblTitleTeacherApp"
-        android:layout_toEndOf="@+id/lblTitleTeacherApp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnEntryTeacher"
-        android:text="Please choose schedule week"
-        android:textSize="17dp"
-        android:textStyle="bold"
-        android:textColor="#101010"
-        android:layout_marginTop="50dp"
-        android:id="@+id/lblScheduleWeek"
-        />
     <TextView
         android:id="@+id/lblDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:background="#f1e9f728"
+        android:text="ok"
         android:textSize="17dp"
         android:textStyle="bold"
         android:textColor="#101010"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/lblScheduleWeek"
-        />
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/btnPickDate"
+        android:layout_alignEnd="@+id/btnShowSchedule" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pick Date"
         style="?android:attr/borderlessButtonStyle"
+        android:background="@drawable/purplebutton"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:id="@+id/btnPickDate"
-        android:layout_alignBottom="@+id/lblDate"
-        android:layout_toRightOf="@+id/lblTitleTeacherApp"
-        android:layout_toEndOf="@+id/lblTitleTeacherApp" />
+        android:layout_marginLeft="100dp"
+        android:layout_alignTop="@+id/btnEntryTeacher"
+        android:layout_alignEnd="@+id/lblTitleTeacherApp"
+        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,9 +68,9 @@
         android:textStyle="bold"
         android:textAllCaps="false"
         android:id="@+id/btnShowSchedule"
-        android:layout_alignTop="@+id/btnPickDate"
-        android:layout_toRightOf="@+id/btnPickDate"
-        android:layout_toEndOf="@+id/btnPickDate" />
+        android:background="@drawable/yellowbutton"
+        android:layout_above="@+id/lblDate"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

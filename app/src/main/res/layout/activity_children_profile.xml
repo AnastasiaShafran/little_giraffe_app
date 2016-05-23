@@ -9,27 +9,31 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Child Profile"
+        android:text="@string/childrenProfile"
         android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:textSize="15dp"
+        android:textSize="35dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#3e18ff"
         android:id="@+id/lblUpdateProfileTitle"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:id="@+id/layoutChildName">
+        android:layout_marginTop="80dp"
+        android:id="@+id/layoutChildName"
+        android:layout_marginLeft="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Child Name:"
+            android:textColor="#e9052f"
             android:layout_marginTop="10dp"
+            android:textSize="20dp"
             android:textStyle="bold"/>
         <EditText
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="13dp"
             android:layout_marginTop="10dp"
             android:background="#fff022"
             android:id="@+id/txtChildName"/>
@@ -39,17 +43,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/layoutChildName"
-        android:id="@+id/layoutChildLastName">
+        android:id="@+id/layoutChildLastName"
+        android:layout_marginLeft="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Last Name:"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#e9590478"/>
         <EditText
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="13dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:background="#fff022"
             android:id="@+id/txtChildLastName"/>
@@ -60,17 +67,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/layoutChildLastName"
-        android:id="@+id/layoutBirthDay">
+        android:id="@+id/layoutBirthDay"
+        android:layout_marginLeft="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Birth day:"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#e90614d2"/>
         <EditText
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
             android:background="#fff022"
             android:id="@+id/txtBirthDay"
@@ -81,17 +91,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/layoutBirthDay"
-        android:id="@+id/layoutPhone">
+        android:id="@+id/layoutPhone"
+        android:layout_marginLeft="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone:"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#e9e103d2"/>
         <EditText
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="37dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="58dp"
             android:layout_marginTop="10dp"
             android:background="#fff022"
             android:id="@+id/txtPhone"/>
@@ -102,17 +115,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/layoutPhone"
-        android:id="@+id/layoutMomName">
+        android:id="@+id/layoutMomName"
+        android:layout_marginLeft="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mom Name:"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#e901740d"/>
         <EditText
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="13dp"
             android:layout_marginTop="10dp"
             android:background="#fff022"
             android:id="@+id/txtMomName"/>
@@ -122,17 +138,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/layoutMomName"
-        android:id="@+id/layoutDadName">
+        android:id="@+id/layoutDadName"
+        android:layout_marginLeft="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dad Name:"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#e9e65603"/>
         <EditText
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="14dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="24dp"
             android:layout_marginTop="10dp"
             android:background="#fff022"
             android:id="@+id/txtDadName"/>
@@ -142,17 +161,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/layoutDadName"
-        android:id="@+id/layoutMomEmail">
+        android:id="@+id/layoutMomEmail"
+        android:layout_marginLeft="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mom Email:"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#e9f52109"/>
         <EditText
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:background="#fff022"
             android:id="@+id/txtMomEmail"/>
@@ -162,17 +184,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/layoutMomEmail"
-        android:id="@+id/layoutDadEmail">
+        android:id="@+id/layoutDadEmail"
+        android:layout_marginLeft="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dad Email:"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#e9ed01e2"/>
         <EditText
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="17dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="27dp"
             android:layout_marginTop="10dp"
             android:background="#fff022"
             android:id="@+id/txtDadEmail"/>
@@ -183,17 +208,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/layoutDadEmail"
-        android:id="@+id/layoutGroup">
+        android:id="@+id/layoutGroup"
+        android:layout_marginLeft="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Insert Group"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#e909a703"/>
         <EditText
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:background="#fff022"
             android:id="@+id/txtGroup"/>
@@ -201,12 +229,19 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Update"
         android:layout_below="@+id/layoutGroup"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="70dp"
-        android:id="@+id/btnUpdateChildProfile"/>
+        android:layout_marginLeft="90dp"
+        android:background="@drawable/yellowbutton"
+        android:id="@+id/btnUpdateChildProfile"
+        style="?android:attr/borderlessButtonStyle"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        android:textColor="#790202"
+        android:textStyle="bold"
+        />
 
 </RelativeLayout>

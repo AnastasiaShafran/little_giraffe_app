@@ -42,18 +42,6 @@ public class ChildrenListForTeacher extends AppCompatActivity {
 
         Firebase refUrl = new Firebase("https://myprojectshafran.firebaseio.com");
 
-
-        final String type = getIntent().getStringExtra("type");
-        if(type.equals("baby")){
-            lblCbGroupTitle = (TextView)findViewById(R.id.lblTitleGroup);
-            lblCbGroupTitle.setText("Baby Giraffes");
-        }
-        if(type.equals("toddler")){
-            lblCbGroupTitle = (TextView)findViewById(R.id.lblTitleGroup);
-            lblCbGroupTitle.setText("Toddler Giraffes");
-
-        }
-
         populateAdapterWithData(refUrl);
 
 

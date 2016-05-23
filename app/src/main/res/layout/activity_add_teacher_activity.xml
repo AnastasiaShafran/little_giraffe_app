@@ -12,27 +12,28 @@ xmlns:tools="http://schemas.android.com/tools"
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Teacher"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textColor="#030303"
+        android:text="@string/teacherAdd"
+        android:textSize="30dp"
+        android:textColor="#ab049d"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        android:layout_marginTop="20dp"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
         android:id="@+id/layoutFirstName"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="50dp"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="First Name:"
+            android:textSize="20dp"
             android:layout_marginTop="15dp"
             android:textStyle="bold"
-            android:textColor="#030303"/>
+            android:textColor="#0c43f9"/>
         <EditText
             android:layout_width="150dp"
             android:layout_height="wrap_content"
@@ -47,14 +48,15 @@ xmlns:tools="http://schemas.android.com/tools"
         android:orientation="horizontal"
         android:layout_below="@id/layoutFirstName"
         android:id="@+id/layoutThLastName"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="50dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Last Name:"
+            android:textSize="20dp"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:textColor="#030303"/>
+            android:textColor="#8806ec"/>
         <EditText
             android:layout_width="150dp"
             android:layout_height="wrap_content"
@@ -70,19 +72,20 @@ xmlns:tools="http://schemas.android.com/tools"
         android:orientation="horizontal"
         android:layout_below="@id/layoutThLastName"
         android:id="@+id/layoutAge"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="50dp"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Age:"
+            android:textSize="20dp"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:textColor="#030303"/>
+            android:textColor="#d46509"/>
         <EditText
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
+            android:layout_marginLeft="73dp"
             android:layout_marginTop="10dp"
             android:background="#f9c8ae"
             android:id="@+id/txtThAge"
@@ -96,34 +99,77 @@ xmlns:tools="http://schemas.android.com/tools"
         android:orientation="horizontal"
         android:layout_below="@id/layoutAge"
         android:id="@+id/layoutThPhone"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="50dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone:"
+            android:textSize="20dp"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:textColor="#030303"/>
+            android:textColor="#c40918"/>
         <EditText
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
             android:background="#f9c8ae"
             android:id="@+id/txtThPhone"
             android:digits="0123456789."
             android:inputType="numberDecimal"
             />
+
+
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/layoutImg"
+        android:layout_marginStart="80dp"
+        android:layout_alignTop="@+id/layoutFirstName"
+        android:layout_alignStart="@+id/textView">
+
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#f9c8ae"
+            android:layout_above="@+id/layoutThPhone"
+            android:layout_toEndOf="@+id/textView"
+            android:layout_marginTop="10dp">
+        </ImageView>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="Pick Image"
+            android:textSize="15dp"
+            android:id="@+id/btnPickImage"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/purplebutton"/>
+
+
+
+
+    </LinearLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="?android:attr/borderlessButtonStyle"
         android:text="Add Teacher"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="103dp"
         android:id="@+id/btbAddTeacher"
-        android:layout_below="@+id/layoutThPhone"
-         />
+        android:layout_below="@+id/layoutImg"
+        android:textAllCaps="false"
+        android:background="@drawable/yellowbutton"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
 
 
 </RelativeLayout>

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">MyFirstActivityProject</string>
+    <string name="teacherAdd"><b><i>Add Teacher</i></b></string>
+    <string name="childrenProfile"><b><i>Update Child Profile</i></b></string>
+    <string name="teachEntrance"><b><i>Hello Teacher!</i></b></string>
 </resources>

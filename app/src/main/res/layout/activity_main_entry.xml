@@ -17,7 +17,7 @@
     android:layout_centerHorizontal="true"
     android:layout_marginTop="40dp"
     android:textSize="40dp"
-    android:textStyle="bold||italic"
+    android:textStyle="bold"
     android:textColor="#e40c62"
     android:id="@+id/lblEntryTitle"
     />
@@ -28,7 +28,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="35dp"
-        android:textStyle="bold||italic"
+        android:textStyle="bold"
         android:textColor="#1a0560"
         android:id="@+id/lblEntryTitle2"
         android:layout_below="@id/lblEntryTitle"
@@ -51,7 +51,7 @@
         android:textColor="#0e0e0e"
         android:textStyle="bold"
         android:textAllCaps="false"
-        android:id="@+id/button3"
+        android:id="@+id/btnParentApp"
         android:background="@drawable/greenbutton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
@@ -60,26 +60,28 @@
         android:layout_width="500dp"
         android:layout_height="65dp"
         android:text="Teacher App"
-        android:id="@+id/button2"
+        android:id="@+id/btnTeacherApp"
         android:textSize="25dp"
         android:textColor="#0e0e0e"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:background="@drawable/purplebutton"
-        android:layout_above="@+id/button3"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/btnParentApp"
+        android:layout_alignLeft="@+id/btnAdminApp"
+        android:layout_alignStart="@+id/btnAdminApp" />
 
     <Button
         android:layout_width="500dp"
         android:layout_height="65dp"
         android:text="Admin App"
-        android:id="@+id/button1"
+        android:id="@+id/btnAdminApp"
         android:textSize="25dp"
         android:textColor="#0e0e0e"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:background="@drawable/yellowbutton"
-        android:layout_above="@+id/button2"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/btnTeacherApp"
+        android:layout_alignLeft="@+id/btnParentApp"
+        android:layout_alignStart="@+id/btnParentApp" />
 
 </RelativeLayout>

@@ -31,8 +31,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 public class TeacherEntranceActivity extends AppCompatActivity {
-    private Spinner spinner;
-    private String[] group = {"baby", "toddler"};
+
     private Firebase mySceduleRef;
     private  Query queryRef;
     private Button btnEntry,btnCbPickDate,btnCbShowSchedule;
@@ -53,17 +52,11 @@ public class TeacherEntranceActivity extends AppCompatActivity {
         mySceduleRef = refUrl.child("Schedule");
         //queryRef = mySceduleRef.orderByChild("startDate");
         showWeeklySchedule();
-        spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, group);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(arrayAdapter);
         btnEntry = (Button) findViewById(R.id.btnEntryTeacher);
         btnEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String selectedGroup = (String) spinner.getSelectedItem();
                 Intent i = new Intent(TeacherEntranceActivity.this, ChildrenListForTeacher.class);
-                i.putExtra("type", selectedGroup);
                 startActivity(i);
 
 
