@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class MoreInfoActivity extends AppCompatActivity implements Serializable {
     Children children;
     TextView lblCbMomMoreInfoName,lblCbMoreInfoDadName,lblCbMomEmail,lblCbDadEmail;
-    String key;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,6 @@ public class MoreInfoActivity extends AppCompatActivity implements Serializable 
         setContentView(R.layout.activity_more_info);
         Intent i = getIntent();
         children=(Children)getIntent().getSerializableExtra("Child");
-//        key = (String)getIntent().getSerializableExtra("Val");
         lblCbMomMoreInfoName = (TextView)findViewById(R.id.lblMomFirstNameMoreInfo);
         lblCbMoreInfoDadName = (TextView)findViewById(R.id.lblDadFirstNameMoreInfo);
         lblCbMomEmail = (TextView)findViewById(R.id.lblMomEmailMoreInfo);

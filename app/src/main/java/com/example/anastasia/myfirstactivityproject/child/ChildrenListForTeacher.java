@@ -22,12 +22,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class ChildrenListForTeacher extends AppCompatActivity {
-    private Firebase myFirebase;
-    private ListView lstCbListForTeacher;
+
     private ChildListForTiacherAdapter childListForTiacherAdapter;
-    private TextView lblCbGroupTitle;
-    private HashMap<String,Children> childrenMap;
-    private Children myChildren;
     private String today;
 
 

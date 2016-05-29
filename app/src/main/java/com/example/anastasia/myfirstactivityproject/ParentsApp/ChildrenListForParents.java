@@ -120,21 +120,21 @@ public class ChildrenListForParents extends AppCompatActivity {
 
 
         }
-    public void getData(){
-        firebaseKid.child("KidActivity").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String date = dataSnapshot.getKey();
-                KidGroupActivity kidGroupActivity = dataSnapshot.getValue(KidGroupActivity.class);
-                kidGroupActivity.getKidsActivity();
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-    }
+//    public void getData(){
+//        firebaseKid.child("KidActivity").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String date = dataSnapshot.getKey();
+//                KidGroupActivity kidGroupActivity = dataSnapshot.getValue(KidGroupActivity.class);
+//                kidGroupActivity.getKidsActivity();
+//            }
+//
+//            @Override
+//            public void onCancelled(FirebaseError firebaseError) {
+//
+//            }
+//        });
+//    }
 
 
     }

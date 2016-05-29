@@ -35,9 +35,8 @@ public class ChildListForTiacherAdapter extends BaseAdapter {
     private Firebase firebase;
     private Button btnCbUpdateActivity;
     private String today;
-
     private KidGroupActivity kidGroupActivity;
-    //private KidActivityForDate kidActivityForDate;
+
 
 
 

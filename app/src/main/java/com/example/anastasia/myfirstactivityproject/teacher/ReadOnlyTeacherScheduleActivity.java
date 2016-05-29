@@ -23,7 +23,6 @@ import java.util.Map;
 
 public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
     private TableLayout table;
-   // private final HashMap<String,Teacher> teachMap = new HashMap<>();;
     private TextView sunday,monday,tuesday,wednesday,thursday, friday;
     private WorkScedule w;
     private String date;
@@ -46,7 +45,7 @@ public class ReadOnlyTeacherScheduleActivity extends AppCompatActivity {
         date = (String)getIntent().getSerializableExtra("date");
         TextView txCbDate = (TextView)findViewById(R.id.lblDateForTeach);
         txCbDate.setText(date);
-       createTableRows(this,w);
+        createTableRows(this,w);
 
 
 

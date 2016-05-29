@@ -30,7 +30,7 @@ public class MyAdapter extends BaseAdapter {
     private Context context;
     private HashMap<String,Children> childrenMap;
     private LayoutInflater inflater;
-    private  Children c;
+    private Children c;
     private Firebase myFirebase;
     private List<String> list = new ArrayList<String>();
 
@@ -78,7 +78,6 @@ public class MyAdapter extends BaseAdapter {
             myView = inflater.inflate(R.layout.activity_row_children, null);
         }
         c = childrenMap.get(childrenMap.keySet().toArray()[position]);
-        //final TextView myCbText = (TextView)myView.findViewById(R.id.text);
         TextView lblChildName = (TextView) myView.findViewById(R.id.lblFirstName);
         TextView lblChildLastName = (TextView) myView.findViewById(R.id.lblLastName);
         TextView lblBirthDay = (TextView) myView.findViewById(R.id.lblDateOfBirth);

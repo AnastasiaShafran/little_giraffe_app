@@ -1,4 +1,4 @@
-package com.example.anastasia.myfirstactivityproject.child;
+package com.example.anastasia.myfirstactivityproject.EntryActivity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.anastasia.myfirstactivityproject.EntryActivity.MainActivity;
+import com.example.anastasia.myfirstactivityproject.AdminApp.MainActivity;
 import com.example.anastasia.myfirstactivityproject.ParentsApp.ParentsActivity;
 import com.example.anastasia.myfirstactivityproject.R;
 import com.example.anastasia.myfirstactivityproject.teacherapp.TeacherEntranceActivity;
@@ -16,7 +16,7 @@ import com.example.anastasia.myfirstactivityproject.teacherapp.TeacherEntranceAc
 public class MainEntryActivity extends AppCompatActivity implements OnClickListener{
    // private  Firebase myFirebase;
     private Button btnCbTeacherApp,btnCbParentApp,btnAdminApp;
-    private TextView lblCbGroupTitle;
+
 
 
     @Override
@@ -30,7 +30,7 @@ public class MainEntryActivity extends AppCompatActivity implements OnClickListe
         btnCbParentApp.setOnClickListener(this);
         btnAdminApp = (Button)findViewById(R.id.btnAdminApp);
         btnAdminApp.setOnClickListener(this);
-        lblCbGroupTitle = (TextView)findViewById(R.id.lblTitleGroup);
+
 
     }
 
